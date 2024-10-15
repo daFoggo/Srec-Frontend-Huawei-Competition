@@ -1,6 +1,6 @@
-VITE + REACT + TAILWIND + SHADCN PROJECT STRUCTRURE SETUP
+Another version of SREC platform building for Huawei Developer Competition 2024
 
-# 1. PROJECT STRUCTRURE
+# PROJECT STRUCTRURE
 
 ```
 └── 📁srec-frontend
@@ -66,21 +66,3 @@ VITE + REACT + TAILWIND + SHADCN PROJECT STRUCTRURE SETUP
     └── tsconfig.node.json
     └── vite.config.ts
 ```
-
-# 2. WHAT IS INSIDE
-- The project is build for Vite + ReactTS + Tailwind + Shadcn
-- And it also contain some basic library for needs like :
-    - react-router-dom
-    - axios 
-    - framer-motion ( if you want to make animation for components )
-- I also provided some reuseable custom Shadcn components like :
-    - CRUD Table
-    - TimePicker
-    - ParticleTS
-
-# 3. INSTALLATION 
-- Clone the project
-- run "npm install"
-- run "npm run dev" to check
-
-
