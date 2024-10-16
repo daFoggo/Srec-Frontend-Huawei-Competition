@@ -82,13 +82,9 @@ export const JobDescriptionsColumn: ColumnDef<IJobDescription>[] = [
     header: "Actions",
     cell: ({ row }) => {
       const job = row.original;
-      const navigate = useNavigate();
       const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
       const handleProcess = () => {
-        navigate(`/recruiter/candidate-ranking/${job.id}`, {
-          state: { selectedJob: job },
-        });
         localStorage.setItem("job", JSON.stringify(job));
       };
 

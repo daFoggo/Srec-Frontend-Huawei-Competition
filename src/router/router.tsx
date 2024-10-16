@@ -10,6 +10,10 @@ import RecruiterLayout from "@/layouts/RecruiterLayout/RecruiterLayout";
 import JobDescriptions from "@/pages/JobDescriptions/JobDescriptions";
 import CandidateLayout from "@/layouts/CandidateLayout/CandidateLayout";
 import CandidateRanking from "@/pages/CandidateRanking/CandidateRanking";
+import Dashboard from "@/pages/Dashboard/Dashboard";
+import CandidateSummary from "@/pages/CandidateSummary/CandidateSummary";
+import Introduction from "@/pages/Introduction/Introduction";
+import PersonalityTest from "@/pages/PersonalityTest/PersonalityTest";
 
 const routeLayout: RouteObject[] = [
   {
@@ -48,14 +52,31 @@ const routeLayout: RouteObject[] = [
       },
       {
         path: routes.candidateRanking + "/:jobId",
-        element: <CandidateRanking />
-      }
+        element: <CandidateRanking />,
+      },
+      {
+        path: routes.dashboard,
+        element: <Dashboard />,
+      },
+      {
+        path: routes.candidateSummary + "/:candidateId",
+        element: <CandidateSummary />,
+      },
     ],
   },
   {
     path: "/candidate",
     element: <CandidateLayout />,
-    children: [],
+    children: [
+      {
+        path: routes.introduction,
+        element: <Introduction />,
+      },
+      {
+        path: routes.personalityTest,
+        element: <PersonalityTest />,
+      },
+    ],
   },
 ];
 

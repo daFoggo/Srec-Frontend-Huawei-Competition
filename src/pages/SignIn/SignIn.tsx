@@ -44,7 +44,7 @@ const SignIn = () => {
       if (currentRole === "Recruiter") {
         navigate("/recruiter/job-descriptions");
       } else if (currentRole === "Candidate") {
-        navigate("/candidate/welcome");
+        navigate("/candidate/introduction");
       }
     }
 

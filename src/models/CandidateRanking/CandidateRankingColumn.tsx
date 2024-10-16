@@ -102,7 +102,6 @@ export const CandidateRankingColumns: ColumnDef<ICandidateRanking>[] = [
     header: "Actions",
     cell: ({ row }) => {
       const candidate = row.original;
-      const navigate = useNavigate();
       const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
       const passSingleCandidate = async (candidateId: string) => {
@@ -113,9 +112,6 @@ export const CandidateRankingColumns: ColumnDef<ICandidateRanking>[] = [
       const handleProcess = async () => {
         try {
           await passSingleCandidate(String(candidate.id));
-          navigate(`/recruiter/dashboard/${candidate.id}`, {
-            state: { selectedJob: candidate },
-          });
           localStorage.setItem("candidate", JSON.stringify(candidate));
         } catch (error) {
           console.error(error);

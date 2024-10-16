@@ -78,16 +78,46 @@ const CandidateNavBar = () => {
         <div className="hidden md:flex items-center space-x-4">
           <NavigationMenu>
             <NavigationMenuList>
-              {/* <NavigationMenuItem>
+            <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    to="/recruiter/job-descriptions"
-                    className={linkClass("/recruiter/job-descriptions")}
+                    to="/candidate/introduction"
+                    className={linkClass("/candidate/introduction")}
                   >
-                    Job descriptions
+                    Introduction
                   </Link>
                 </NavigationMenuLink>
-              </NavigationMenuItem> */}
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    to="/candidate/code-assessment"
+                    className={linkClass("/candidate/code-assessment")}
+                  >
+                    Code assessment
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    to="/candidate/personality-test"
+                    className={linkClass("/candidate/personality-test")}
+                  >
+                    Personality Test
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    to="/candidate/virtual-interview"
+                    className={linkClass("/candidate/virtual-interview")}
+                  >
+                    Virtual Interview
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
           <UserMenu />

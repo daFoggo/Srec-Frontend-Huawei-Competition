@@ -69,16 +69,18 @@ const UserMenu = () => {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             {currentRole === "Recruiter" && (
-              <DropdownMenuGroup>
-                <Link to="/recruiter/job-descriptions">
-                  <DropdownMenuItem>
-                    <FileSearch2 className="mr-2 h-4 w-4" />
-                    <span>Start recruitment</span>
-                  </DropdownMenuItem>
-                </Link>
-              </DropdownMenuGroup>
+              <>
+                <DropdownMenuGroup>
+                  <Link to="/recruiter/job-descriptions">
+                    <DropdownMenuItem>
+                      <FileSearch2 className="mr-2 h-4 w-4" />
+                      <span>Start recruitment</span>
+                    </DropdownMenuItem>
+                  </Link>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+              </>
             )}
-            <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut className="mr-2 h-4 w-4" />
               <span>Log out</span>
