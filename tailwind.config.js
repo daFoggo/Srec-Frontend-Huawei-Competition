@@ -23,7 +23,12 @@ export default {
 			"blue-300": "#b3d4ff",
 			"blue-200": "#dbeafe",
 			"blue-100": "#e8f2ff",
-			"sand": "#ffc58e",
+      "sand-500": "#fc6813",
+      "sand-400": "##fd883a",
+      "sand-300": "##ffb372",
+			"sand-200": "#ffc58e",
+      "sand-100": "#ffebd5",
+      "sand-50": "#fff6ed",
 			"subtle": "#a3afb9"
 		},
         background: "hsl(var(--background))",

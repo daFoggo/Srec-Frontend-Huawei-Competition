@@ -24,7 +24,7 @@ const RootFooter = () => {
             <NavigationMenuLink asChild>
               <Link to={githubLink}>
                 <Button
-                  className="font-clash font-medium bg-transparent text-black hover:bg-rocken-blue-300 hover:text-white transition-all duration-300"
+                  className="font-clash font-medium bg-transparent text-black hover:bg-rocken-blue-300 hover:text-white transition-colors duration-300"
                   icon={<Github className="h-4 w-4 mr-2" />}
                 >
                   Github

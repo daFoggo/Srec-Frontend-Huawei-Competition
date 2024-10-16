@@ -93,7 +93,7 @@ const Home = () => {
               className="w-full h-full object-cover rounded-md"
             />
           </div>
-          <div className="flex flex-col gap-4 w-full lg:w-2/3">
+          <div className="flex flex-col gap-6 w-full lg:w-2/3">
             <p className="text-left">
               By providing a comprehensive evaluation of both technical and
               interpersonal skills, SREC aims to{" "}
@@ -109,7 +109,7 @@ const Home = () => {
             </p>
             <Link to="/sign-in">
               <Button
-                className="bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90 w-fit"
+                className="bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90 w-fit transition-colors"
                 icon={<Sparkles className="w-4 h-4" />}
                 iconPosition="right"
               >
@@ -143,7 +143,7 @@ const Home = () => {
             {modules.map((module, index) => (
               <motion.div
                 key={index}
-                className="bg-rocken-blue-100 font-clash rounded-lg p-4 flex items-start gap-4"
+                className="bg-rocken-blue-100 font-clash rounded-lg p-6 flex items-start gap-6"
                 variants={itemVariants}
               >
                 <div className="text-rocken-blue-500">{module.icon}</div>
@@ -173,7 +173,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
             {achievements.map((achievement, index) => (
               <motion.div
-                className="flex justify-between items-center gap-4 w-full bg-rocken-blue-100 rounded-lg p-4"
+                className="flex justify-between items-center gap-6 w-full bg-rocken-blue-100 rounded-lg p-6"
                 key={index}
                 variants={itemVariants}
               >

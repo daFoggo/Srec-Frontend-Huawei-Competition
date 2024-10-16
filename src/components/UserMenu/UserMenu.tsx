@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
-import { MoveRight } from "lucide-react";
+import { FileSearch2, MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { user } from "./constant";
@@ -18,17 +18,25 @@ import { LogOut, User } from "lucide-react";
 
 const UserMenu = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [currentRole, setCurrentRole] = useState("");
 
   useEffect(() => {
     const isSignedIn = localStorage.getItem("isSignedIn");
+    const currentRole = localStorage.getItem("role");
     if (isSignedIn) {
       setIsSignedIn(true);
     }
 
+    if (currentRole) {
+      setCurrentRole(currentRole);
+    }
+
     return () => {
       setIsSignedIn(false);
+      setCurrentRole("");
     };
   });
+
   const itemVariants = {
     closed: { opacity: 0, y: -10 },
     open: { opacity: 1, y: 0 },
@@ -48,7 +56,7 @@ const UserMenu = () => {
           <DropdownMenuContent className="w-100 font-inter ">
             <DropdownMenuLabel>
               {user.username} <br />
-              <p className="text-xs text-rocken-subtle">{user.role}</p>
+              <p className="text-xs text-rocken-subtle">{currentRole}</p>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
@@ -59,6 +67,17 @@ const UserMenu = () => {
                 </DropdownMenuItem>
               </Link>
             </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            {currentRole === "Recruiter" && (
+              <DropdownMenuGroup>
+                <Link to="/recruiter/job-descriptions">
+                  <DropdownMenuItem>
+                    <FileSearch2 className="mr-2 h-4 w-4" />
+                    <span>Start recruitment</span>
+                  </DropdownMenuItem>
+                </Link>
+              </DropdownMenuGroup>
+            )}
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut className="mr-2 h-4 w-4" />
@@ -73,7 +92,7 @@ const UserMenu = () => {
   return (
     <motion.div variants={itemVariants}>
       <Link to="/sign-in">
-        <Button className="w-full font-clash font-medium bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90">
+        <Button className="w-full font-clash font-medium bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90 transition-colors">
           Sign in
           <MoveRight className="h-4 w-4" />
         </Button>

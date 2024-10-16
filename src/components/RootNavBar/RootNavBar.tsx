@@ -25,9 +25,9 @@ const RootNavBar = () => {
   const linkClass = (path: string) =>
     `group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 font-clash font-medium transition-colors duration-300 ${
       isActive(path)
-        ? "bg-rocken-blue-100 text-accent-foreground"
-        : "hover:bg-rocken-blue-100 hover:text-accent-foreground"
-    } focus:bg-rocken-blue-100 focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50`;
+        ? "bg-rocken-blue-100 text-rocken-blue-500"
+        : "hover:bg-rocken-blue-100 hover:text-rocken-blue-500 transition-colors "
+    } focus:bg-rocken-blue-100 focus:text-rocken-blue-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50`;
 
   {
     /* Mobile menu */

@@ -9,6 +9,7 @@ import Profile from "@/pages/Profile/Profile";
 import RecruiterLayout from "@/layouts/RecruiterLayout/RecruiterLayout";
 import JobDescriptions from "@/pages/JobDescriptions/JobDescriptions";
 import CandidateLayout from "@/layouts/CandidateLayout/CandidateLayout";
+import CandidateRanking from "@/pages/CandidateRanking/CandidateRanking";
 
 const routeLayout: RouteObject[] = [
   {
@@ -45,6 +46,10 @@ const routeLayout: RouteObject[] = [
         path: routes.jobDescriptions,
         element: <JobDescriptions />,
       },
+      {
+        path: routes.candidateRanking + "/:jobId",
+        element: <CandidateRanking />
+      }
     ],
   },
   {

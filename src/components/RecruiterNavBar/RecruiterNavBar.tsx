@@ -26,7 +26,7 @@ const RecruiterNavBar = () => {
     `group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 font-clash font-medium transition-colors duration-300 ${
       isActive(path)
         ? "bg-rocken-blue-200 text-rocken-blue-500"
-        : "hover:bg-rocken-blue-200 hover:text-rocken-blue-500/90 text-white"
+        : "hover:bg-rocken-blue-200 hover:text-rocken-blue-500/90 text-white transition-colors"
     } focus:bg-rocken-blue-200 focus:text-rocken-blue-500/90 focus:outline-none disabled:pointer-events-none disabled:opacity-50`;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);

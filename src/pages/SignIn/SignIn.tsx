@@ -47,7 +47,7 @@ const SignIn = () => {
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     try {
       console.log(values);
-      navigate("/cv");
+      navigate("/");
     } catch (error) {
       console.error(error);
     } finally {

@@ -13,7 +13,9 @@ const RecruiterLayout = () => {
         <Outlet />
         <Toaster
           toastOptions={{
-            style: {},
+            style: {
+              color: "#4893f4"
+            },
           }}
           position="top-center"
         />
