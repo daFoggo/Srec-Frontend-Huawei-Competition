@@ -1,39 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import homeBackground from "@/assets/images/Home/home_background.svg";
 import recruitmentImage from "@/assets/images/Home/recruitment_image.jpg";
-import { Code, FileText, Sparkles, UserSearch, Video } from "lucide-react";
+import { achievements, modules } from "./constant";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const achievements = [
-    { title: "Coding exercises", number: "4,000+" },
-    { title: "Personality questions", number: "1,000+" },
-    { title: "Interview questions", number: "100+" },
-  ];
-
-  const modules = [
-    {
-      title: "Resume screening",
-      icon: <FileText className="w-6 h-6" />,
-      description: "LLM and text-matching algorithms",
-    },
-    {
-      title: "Coding assessment",
-      icon: <Code className="w-6 h-6" />,
-      description: "Job description-generated problems",
-    },
-    {
-      title: "Personality tests",
-      icon: <UserSearch className="w-6 h-6" />,
-      description: "Machine learning models",
-    },
-    {
-      title: "Virtual interviews",
-      icon: <Video className="w-6 h-6" />,
-      description: "Simulating real scenarios",
-    },
-  ];
-
+  // Framer motion variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -122,8 +96,9 @@ const Home = () => {
           <div className="flex flex-col gap-4 w-full lg:w-2/3">
             <p className="text-left">
               By providing a comprehensive evaluation of both technical and
-              interpersonal skills, SREC aims to revolutionize the recruitment
-              process, saving{" "}
+              interpersonal skills, SREC aims to{" "}
+              <b className="text-rocken-blue-500 font-medium">revolutionize</b>{" "}
+              the recruitment process, saving{" "}
               <b className="text-rocken-blue-500 font-medium">time</b> and
               improving{" "}
               <b className="text-rocken-blue-500 font-medium">accuracy</b> while{" "}
@@ -132,13 +107,15 @@ const Home = () => {
               </b>
               .
             </p>
-            <Button
-              className="bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90 w-fit"
-              icon={<Sparkles className="w-4 h-4" />}
-              iconPosition="right"
-            >
-              Let's try
-            </Button>
+            <Link to="/sign-in">
+              <Button
+                className="bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90 w-fit"
+                icon={<Sparkles className="w-4 h-4" />}
+                iconPosition="right"
+              >
+                Let's try
+              </Button>
+            </Link>
           </div>
         </motion.div>
 
@@ -171,9 +148,7 @@ const Home = () => {
               >
                 <div className="text-rocken-blue-500">{module.icon}</div>
                 <div>
-                  <p className="font-medium text-lg">
-                    {module.title}
-                  </p>
+                  <p className="font-medium text-lg">{module.title}</p>
                   <p className="text-sm text-gray-600">{module.description}</p>
                 </div>
               </motion.div>

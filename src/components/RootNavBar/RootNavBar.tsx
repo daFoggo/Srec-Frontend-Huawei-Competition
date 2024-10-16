@@ -11,6 +11,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { motion, AnimatePresence } from "framer-motion";
+import UserMenu from "../UserMenu/UserMenu";
 
 const RootNavBar = () => {
   const location = useLocation();
@@ -61,9 +62,15 @@ const RootNavBar = () => {
     <div className="py-4 px-4 md:px-12 border-b shadow-sm border-gray-300">
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <div className="flex gap-2 items-center font-clash font-semibold text-2xl md:text-3xl">
-          SREC
-        </div>
+        <Link to="/">
+          <Button
+            variant="outline"
+            className="flex gap-2 items-center font-clash font-semibold text-2xl md:text-3xl border-transparent hover:text-rocken-blue-500 transition-colors"
+            whileHover={{ scale: 1.05 }}
+          >
+            SREC
+          </Button>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-4">
@@ -90,14 +97,10 @@ const RootNavBar = () => {
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
+              {/* Sign In Button */}
             </NavigationMenuList>
           </NavigationMenu>
-
-          {/* Sign In Button */}
-          <Button className="font-clash font-medium bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90">
-            Sign in
-            <MoveRight className="ml-2 h-4 w-4" />
-          </Button>
+          <UserMenu />
         </div>
 
         {/* Mobile Menu Button */}
@@ -146,10 +149,7 @@ const RootNavBar = () => {
               </motion.div>
             </nav>
             <motion.div variants={itemVariants}>
-              <Button className="w-full mt-4 font-clash font-medium bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90">
-                Sign in
-                <MoveRight className="ml-2 h-4 w-4" />
-              </Button>
+              <UserMenu />
             </motion.div>
           </motion.div>
         )}

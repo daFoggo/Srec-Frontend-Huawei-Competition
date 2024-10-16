@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
+import { motion, HTMLMotionProps } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
@@ -34,16 +35,18 @@ const buttonVariants = cva(
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<HTMLMotionProps<"button">, "color">,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right'
 }
 
+const MotionButton = motion.button
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, icon, iconPosition = 'left', children, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : MotionButton
     
     const content = (
       <>
@@ -55,15 +58,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }), "gap-2")}
+  asCh      className={cn(buttonVariants({ variant, size, className }), "gap-2")}
         ref={ref}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
         {...props}
       >
         {content}
       </Comp>
     )
   }
-)
+) as React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>
+
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
