@@ -48,7 +48,7 @@ const UserMenu = () => {
           <DropdownMenuContent className="w-100 font-inter ">
             <DropdownMenuLabel>
               {user.username} <br />
-              <p className="text-xs text-rocken-subtle">{user.email}</p>
+              <p className="text-xs text-rocken-subtle">{user.role}</p>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
