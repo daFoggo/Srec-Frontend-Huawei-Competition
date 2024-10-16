@@ -3,9 +3,12 @@ import routes from "./routerConfig";
 import RootLayout from "@/layouts/RootLayout/RootLayout";
 import Home from "@/pages/Home/Home";
 import About from "@/pages/About/About";
-import Contact from "@/pages/Contact/Contact";  
+import Contact from "@/pages/Contact/Contact";
 import SignIn from "@/pages/SignIn/SignIn";
 import Profile from "@/pages/Profile/Profile";
+import RecruiterLayout from "@/layouts/RecruiterLayout/RecruiterLayout";
+import JobDescriptions from "@/pages/JobDescriptions/JobDescriptions";
+import CandidateLayout from "@/layouts/CandidateLayout/CandidateLayout";
 
 const routeLayout: RouteObject[] = [
   {
@@ -31,8 +34,23 @@ const routeLayout: RouteObject[] = [
       {
         path: routes.profile,
         element: <Profile />,
-      }
+      },
     ],
+  },
+  {
+    path: "/recruiter",
+    element: <RecruiterLayout />,
+    children: [
+      {
+        path: routes.jobDescriptions,
+        element: <JobDescriptions />,
+      },
+    ],
+  },
+  {
+    path: "/candidate",
+    element: <CandidateLayout />,
+    children: [],
   },
 ];
 

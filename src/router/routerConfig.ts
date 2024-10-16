@@ -4,6 +4,7 @@ const routes = {
     contact: "contact",
     signIn: "sign-in",
     profile: "profile",
+    jobDescriptions: "job-descriptions"
 }
 
 export default routes;
