@@ -24,7 +24,7 @@ export default {
 			"blue-200": "#dbeafe",
 			"blue-100": "#e8f2ff",
 			"sand": "#ffc58e",
-			"subtle": "#d7dce1"
+			"subtle": "#a3afb9"
 		},
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

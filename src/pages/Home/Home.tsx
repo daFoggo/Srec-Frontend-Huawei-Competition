@@ -2,13 +2,36 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import homeBackground from "@/assets/images/Home/home_background.svg";
 import recruitmentImage from "@/assets/images/Home/recruitment_image.jpg";
-import { Sparkles } from "lucide-react";
+import { Code, FileText, Sparkles, UserSearch, Video } from "lucide-react";
 
 const Home = () => {
   const achievements = [
     { title: "Coding exercises", number: "4,000+" },
     { title: "Personality questions", number: "1,000+" },
     { title: "Interview questions", number: "100+" },
+  ];
+
+  const modules = [
+    {
+      title: "Resume screening",
+      icon: <FileText className="w-6 h-6" />,
+      description: "LLM and text-matching algorithms",
+    },
+    {
+      title: "Coding assessment",
+      icon: <Code className="w-6 h-6" />,
+      description: "Job description-generated problems",
+    },
+    {
+      title: "Personality tests",
+      icon: <UserSearch className="w-6 h-6" />,
+      description: "Machine learning models",
+    },
+    {
+      title: "Virtual interviews",
+      icon: <Video className="w-6 h-6" />,
+      description: "Simulating real scenarios",
+    },
   ];
 
   const containerVariants = {
@@ -70,6 +93,7 @@ const Home = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
+        {/* Title */}
         <motion.div
           className="w-full text-2xl lg:text-3xl"
           variants={itemVariants}
@@ -83,8 +107,9 @@ const Home = () => {
           </div>
         </motion.div>
 
+        {/* Description */}
         <motion.div
-          className="flex flex-col lg:flex-row justify-between items-center gap-6 font-clash font-medium"
+          className="flex flex-col lg:flex-row justify-between items-start gap-6 font-clash font-medium"
           variants={itemVariants}
         >
           <div className="aspect-square w-full lg:w-1/3 mb-4 lg:mb-0">
@@ -117,6 +142,46 @@ const Home = () => {
           </div>
         </motion.div>
 
+        {/* Modules */}
+        <motion.div
+          className="w-full"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.p
+            className="font-clash font-medium text-2xl lg:text-3xl"
+            variants={itemVariants}
+          >
+            SREC Modules
+          </motion.p>
+          <motion.p
+            className="font-clash text-lg mb-6 text-rocken-subtle"
+            variants={itemVariants}
+          >
+            Automated online recruitment system for IT companies and futhermore,
+            evaluating both hard and soft skills
+          </motion.p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {modules.map((module, index) => (
+              <motion.div
+                key={index}
+                className="bg-rocken-blue-100 font-clash rounded-lg p-4 flex items-start gap-4"
+                variants={itemVariants}
+              >
+                <div className="text-rocken-blue-500">{module.icon}</div>
+                <div>
+                  <p className="font-medium text-lg">
+                    {module.title}
+                  </p>
+                  <p className="text-sm text-gray-600">{module.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Achievements */}
         <motion.div
           className="flex flex-col gap-6 w-full"
           variants={containerVariants}
