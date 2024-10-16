@@ -89,6 +89,7 @@ export const JobDescriptionsColumn: ColumnDef<IJobDescription>[] = [
         navigate(`/recruiter/candidate-ranking/${job.id}`, {
           state: { selectedJob: job },
         });
+        localStorage.setItem("job", JSON.stringify(job));
       };
 
       return (
@@ -105,32 +106,34 @@ export const JobDescriptionsColumn: ColumnDef<IJobDescription>[] = [
               </Button>
             </DialogTrigger>
             <DialogContent
-              className="max-w-2xl max-h-[90%] font-inter"
+              className="w-full max-w-3xl h-[90vh] overflow-hidden flex flex-col font-inter"
               onOpenAutoFocus={(e) => e.preventDefault()}
             >
-              <DialogHeader>
+              <DialogHeader className="px-6 py-4 border-b">
                 <DialogTitle className="text-xl font-bold text-rocken-blue-500">
                   {job.name}
                 </DialogTitle>
               </DialogHeader>
 
-              <div className="flex flex-col gap-6 h-full overflow-y-auto p-2">
-                <DynamicField
-                  id="description"
-                  label="Description"
-                  value={job.description}
-                />
-                <DynamicField
-                  id="skills_required"
-                  label="Skills Required"
-                  value={job.skills_required}
-                />
-                <DynamicField id="level" label="Level" value={job.level} />
-                <DynamicField
-                  id="applied"
-                  label="Applied"
-                  value={job.applied}
-                />
+              <div className="flex-1 overflow-y-auto px-6 py-4">
+                <div className="flex flex-col gap-6">
+                  <DynamicField
+                    id="description"
+                    label="Description"
+                    value={job.description}
+                  />
+                  <DynamicField
+                    id="skills_required"
+                    label="Skills Required"
+                    value={job.skills_required}
+                  />
+                  <DynamicField id="level" label="Level" value={job.level} />
+                  <DynamicField
+                    id="applied"
+                    label="Applied"
+                    value={job.applied}
+                  />
+                </div>
               </div>
             </DialogContent>
           </Dialog>
@@ -138,7 +141,7 @@ export const JobDescriptionsColumn: ColumnDef<IJobDescription>[] = [
           <Button
             variant="outline"
             size="sm"
-            className="border-rocken-sand-500 bg-rocken-sand-100 text-rocken-sand-500 hover:bg-rockend-sand-100/90 hover:text-rocken-san-500/90 transition-colors"
+            className="border-rocken-sand-500 bg-rocken-sand-100 text-rocken-sand-500 hover:bg-rocken-sand-100/90 hover:text-rocken-sand-500/90 transition-colors"
             onClick={() => setShowConfirmDialog(true)}
             icon={<ExternalLink className="h-4 w-4" />}
             iconPosition="left"

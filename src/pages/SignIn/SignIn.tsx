@@ -25,6 +25,7 @@ import { toast } from "sonner";
 import { KeyRound, Mail } from "lucide-react";
 import loginBackground from "@/assets/images/Login/login_background.png";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   email: z
@@ -35,6 +36,20 @@ const formSchema = z.object({
 });
 
 const SignIn = () => {
+  useEffect(() => {
+    const isSignedIn = localStorage.getItem("isSignedIn");
+    const currentRole = localStorage.getItem("role");
+
+    if (isSignedIn) {
+      if (currentRole === "Recruiter") {
+        navigate("/recruiter/job-descriptions");
+      } else if (currentRole === "Candidate") {
+        navigate("/candidate/welcome");
+      }
+    }
+
+    return () => {};
+  }, []);
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

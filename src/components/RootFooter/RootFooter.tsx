@@ -7,7 +7,7 @@ import {
 import { Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import { githubLink } from "@/utils/constant";
+import { GITHUB_LINK } from "@/utils/constant";
 
 const RootFooter = () => {
   return (
@@ -22,7 +22,7 @@ const RootFooter = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link to={githubLink}>
+              <Link to={GITHUB_LINK}>
                 <Button
                   className="font-clash font-medium bg-transparent text-black hover:bg-rocken-blue-300 hover:text-white transition-colors duration-300"
                   icon={<Github className="h-4 w-4 mr-2" />}

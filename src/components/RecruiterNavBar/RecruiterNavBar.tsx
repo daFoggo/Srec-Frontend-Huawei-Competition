@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -16,11 +16,24 @@ import navbarBackground from "@/assets/images/NavBar/navbar_ background.png";
 
 const RecruiterNavBar = () => {
   const location = useLocation();
+  const [jobId, setJobId] = useState<Number | null>();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
+
+  useEffect(() => {
+    const job = localStorage.getItem("job");
+    if (job) {
+      const parsedJob = JSON.parse(job);
+      setJobId(parsedJob.id);
+    }
+
+    return () => {
+      setJobId(null)
+    }
+  }, []);
 
   const linkClass = (path: string) =>
     `group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 font-clash font-medium transition-colors duration-300 ${
@@ -91,8 +104,8 @@ const RecruiterNavBar = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    to="/recruiter/candidate-ranking"
-                    className={linkClass("/recruiter/candidate-ranking")}
+                    to={`/recruiter/candidate-ranking/${jobId}`}
+                    className={linkClass(`/recruiter/candidate-ranking/${jobId}`)}
                   >
                     Candidate Ranking
                   </Link>

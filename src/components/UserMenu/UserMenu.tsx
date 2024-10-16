@@ -47,13 +47,13 @@ const UserMenu = () => {
       <motion.div variants={itemVariants}>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Avatar>
+            <Avatar className="cursor-pointer">
               <AvatarFallback className="font-clash font-semibold">
                 {user.username[0]}
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-100 font-inter ">
+          <DropdownMenuContent className="w-100 font-inter cursor-pointer">
             <DropdownMenuLabel>
               {user.username} <br />
               <p className="text-xs text-rocken-subtle">{currentRole}</p>

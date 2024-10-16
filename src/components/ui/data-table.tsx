@@ -200,7 +200,7 @@ export function DataTable<TData, TValue>({
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          Before
+          Previous
         </Button>
         <Button
           variant="outline"
@@ -208,7 +208,7 @@ export function DataTable<TData, TValue>({
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          After
+          Next
         </Button>
       </div>
     </div>

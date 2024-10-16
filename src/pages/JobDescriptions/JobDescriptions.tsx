@@ -15,10 +15,10 @@ const JobDescriptions = () => {
   const getJobDescriptions = async () => {
     setIsLoading(true);
     try {
-      toast.success("Tải dữ liệu việc làm thành công");
+      toast.success("Job descriptions loaded successfully");
     } catch (error) {
       console.log(error);
-      toast.error("Tải dữ liệu việc làm thất bại");
+      toast.error("Failed to load job descriptions");
     } finally {
       setIsLoading(false);
     }
