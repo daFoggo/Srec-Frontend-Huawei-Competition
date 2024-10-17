@@ -58,7 +58,7 @@ const PersonalityTest = () => {
   return (
     <div className="relative font-inter">
       <div
-        className="min-h-[40vh] w-full py-8"
+        className="min-h-[40vh] w-full py-8 flex items-center justify-center"
         style={{
           backgroundImage: `url(${personalityTestBackground})`,
           backgroundSize: "cover",
@@ -67,10 +67,10 @@ const PersonalityTest = () => {
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-2xl sm:text-3xl font-bold text-white">
+            <h1 className="text-3xl sm:text-3xl font-bold text-white">
               Personality Test
             </h1>
-            <p className="text-base sm:text-lg font-semibold text-white/80 mt-2">
+            <p className="text-base sm:text-xl font-semibold text-white/80 mt-2">
               Based on Big 5 Personality Traits
             </p>
           </div>
