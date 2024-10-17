@@ -12,8 +12,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { CodeEditorProps } from "@/models/CodeAssessment/CodeAssessment";
 import { Play, SendHorizontal } from "lucide-react";
-import { ScrollArea } from "../ui/scroll-area";
 import ConfirmDialog from "../ConfirmDialog/ConfirmDialog";
+import { convertDifficulty, convertMemory } from "@/utils/helper";
 
 export const CodeEditor = ({
   problem,
@@ -48,10 +48,10 @@ export const CodeEditor = ({
   };
 
   return (
-    <div className="w-full h-full flex flex-col gap-6">
-      <div className=" flex justify-between items-center">
+    <div className="w-full h-full flex flex-col gap-6 p-1">
+      <div className=" flex justify-between items-start">
         <h2 className="text-3xl font-bold text-rocken-blue-500">
-          {problem.title}
+          {problem.name}
         </h2>
         <Select onValueChange={handleLanguageChange} value={session.language}>
           <SelectTrigger className="w-[180px]">
@@ -64,18 +64,28 @@ export const CodeEditor = ({
         </Select>
       </div>
       <div className="">
-        <h3 className="text-lg font-semibold mb-4 text-rocken-blue-400">
+        <div className="text-sm font-semibold text-rocken-subtle">
+          <p>Difficulty : {convertDifficulty(problem.difficulty)}</p>
+          <p>Time : {problem.second}s</p>
+          <p>
+            Memory :{" "}
+            {convertMemory(problem.memory_limit_bytes, "byte", "megabyte")}Mb
+          </p>
+        </div>
+        <h3 className="text-lg font-semibold mt-2 text-rocken-blue-400">
           Problem Description
         </h3>
         <p>{problem.description}</p>
+        <h4 className="font-semibold mt-2 text-rocken-blue-400">Input</h4>
+        <p>{problem.input}</p>
+        <h4 className="font-semibold mt-2 text-rocken-blue-400">Output</h4>
+        <p>{problem.output}</p>
+        <h4 className="font-semibold mt-2 text-rocken-blue-400">Constraints</h4>
+        <p>{problem.constraints}</p>
         <h4 className="font-semibold mt-2 text-rocken-blue-400">Example</h4>
-        {problem.examples.map((example, index) => (
-          <div key={index} className="mb-2">
-            <p>Input: {example.input}</p>
-            <p>Output: {example.output}</p>
-            <p>Explanation: {example.explanation}</p>
-          </div>
-        ))}
+        <p>{problem.example}</p>
+        <h4 className="font-semibold mt-2 text-rocken-blue-400">Explanation</h4>
+        <p>{problem.explanation}</p>
       </div>
       <Editor
         height="40vh"

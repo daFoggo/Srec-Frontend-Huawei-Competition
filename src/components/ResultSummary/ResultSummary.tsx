@@ -15,7 +15,7 @@ export const ResultsSummary = ({ sessions }: ResultsSummaryProps) => {
   );
 
   return (
-    <div className="w-full flex flex-col gap-6">
+    <div className="w-full flex flex-col gap-6 p-1">
       <div>
         <h2 className="text-3xl text-rocken-blue-500 font-bold mb-4">
           Progress
@@ -68,7 +68,7 @@ export const ResultsSummary = ({ sessions }: ResultsSummaryProps) => {
       {sessions.length === completedSessions.length && (
         <Button
           className="w-full bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90 font-semibold"
-          icon={<MoveRight/>}
+          icon={<MoveRight />}
           iconPosition="right"
           onClick={() => navigate("/candidate/personality-test")}
         >

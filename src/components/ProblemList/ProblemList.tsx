@@ -6,6 +6,7 @@ import {
   ChevronsLeftRightEllipsis,
   CircleDashed,
 } from "lucide-react";
+import { truncateText } from "@/utils/helper";
 
 export const ProblemList = ({
   problems,
@@ -14,9 +15,9 @@ export const ProblemList = ({
   sessions,
 }: ProblemListProps) => {
   return (
-    <div className="w-full overflow-y-auto">
+    <div className="w-full overflow-y-auto p-1">
       <h2 className="text-3xl font-bold mb-4 text-rocken-blue-500">Problems</h2>
-      {problems.map((problem) => {
+      {problems?.map((problem) => {
         const session = sessions.find((s) => s.problemId === problem.id);
         return (
           <Button
@@ -29,7 +30,7 @@ export const ProblemList = ({
             }`}
             onClick={() => onSelectProblem(problem.id)}
           >
-            <p>{problem.title}</p>
+            <p>{truncateText(problem.name, 30)}</p>
             {session && (
               <span
                 className={`ml-2 text-lg ${

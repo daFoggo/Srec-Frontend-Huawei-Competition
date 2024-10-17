@@ -33,7 +33,7 @@ const CodeAssessment = () => {
 
   return (
     <div className="flex justify-between h-screen font-inter">
-      <div className="w-1/4 p-6 border-r">
+      <div className="w-1/4 p-5 border-r">
         <ProblemList
           problems={codingProblems}
           selectedProblemId={selectedProblemId}
@@ -41,7 +41,7 @@ const CodeAssessment = () => {
           sessions={userSessions}
         />
       </div>
-      <ScrollArea className="w-1/2 p-6">
+      <ScrollArea className="w-1/2 p-5">
         {selectedProblem && (
           <CodeEditor
             problem={selectedProblem}
@@ -50,7 +50,7 @@ const CodeAssessment = () => {
           />
         )}
       </ScrollArea>
-      <div className="w-1/4 p-6 border-l">
+      <div className="w-1/4 p-5 border-l">
         <ResultsSummary sessions={userSessions} />
       </div>
     </div>

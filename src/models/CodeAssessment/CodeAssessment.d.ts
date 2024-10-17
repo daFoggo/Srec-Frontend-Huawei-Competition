@@ -7,9 +7,22 @@ export interface UserSession {
 
 export interface Problem {
   id: number;
-  title: string;
+  source: string;
+  name: string;
   description: string;
-  examples: { input: string; output: string; explanation: string }[];
+  input: string;
+  output: string;
+  constraints: string;
+  example: string;
+  explanation: string;
+  public_input: string;
+  public_output: string;
+  gen_input: string;
+  gen_output: string;
+  difficulty: number;
+  second: number;
+  nano: number;
+  memory_limit_bytes: number;
 }
 
 export interface CodeEditorProps {
