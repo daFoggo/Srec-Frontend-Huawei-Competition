@@ -14,6 +14,7 @@ import Dashboard from "@/pages/Dashboard/Dashboard";
 import CandidateSummary from "@/pages/CandidateSummary/CandidateSummary";
 import Introduction from "@/pages/Introduction/Introduction";
 import PersonalityTest from "@/pages/PersonalityTest/PersonalityTest";
+import CodeAssessment from "@/pages/CodeAssessment/CodeAssessment";
 
 const routeLayout: RouteObject[] = [
   {
@@ -71,6 +72,10 @@ const routeLayout: RouteObject[] = [
       {
         path: routes.introduction,
         element: <Introduction />,
+      },
+      {
+        path: routes.codeAssessment,
+        element: <CodeAssessment />,
       },
       {
         path: routes.personalityTest,
