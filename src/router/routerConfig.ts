@@ -12,6 +12,7 @@ const routes = {
     codeAssessment: "code-assessment",
     personalityTest : "personality-test",
     virtualInterview : "virtual-interview",
+    thankYou : "thank-you"
 }
 
 export default routes;

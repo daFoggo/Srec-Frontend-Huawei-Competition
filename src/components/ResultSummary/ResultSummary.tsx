@@ -22,7 +22,7 @@ export const ResultsSummary = ({ sessions }: ResultsSummaryProps) => {
         </h2>
         <Progress
           value={progressPercentage}
-          className="h-2 sm:h-3 bg-rocken-blue-200 text-rocken-blue-500 [&>*]:bg-rocken-blue-500 mb-1"
+          className="h-2 sm:h-3 mb-2 [&>*]:bg-gradient-to-r from-rocken-blue-300 to-rocken-blue-500"
         />
         <p className="text-sm text-gray-600 mb-4">
           {progressPercentage}% Complete

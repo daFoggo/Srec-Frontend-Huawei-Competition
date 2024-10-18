@@ -15,6 +15,8 @@ import CandidateSummary from "@/pages/CandidateSummary/CandidateSummary";
 import Introduction from "@/pages/Introduction/Introduction";
 import PersonalityTest from "@/pages/PersonalityTest/PersonalityTest";
 import CodeAssessment from "@/pages/CodeAssessment/CodeAssessment";
+import VirtualInterview from "@/pages/VirtualInterview/VirtualInterview";
+import ThankYou from "@/pages/ThankYou/ThankYou";
 
 const routeLayout: RouteObject[] = [
   {
@@ -80,6 +82,14 @@ const routeLayout: RouteObject[] = [
       {
         path: routes.personalityTest,
         element: <PersonalityTest />,
+      },
+      {
+        path: routes.virtualInterview,
+        element: <VirtualInterview />,
+      },
+      {
+        path: routes.thankYou,
+        element: <ThankYou />,
       },
     ],
   },

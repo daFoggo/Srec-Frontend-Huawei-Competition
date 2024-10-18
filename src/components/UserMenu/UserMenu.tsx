@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
-import { FileSearch2, MoveRight } from "lucide-react";
+import { FileSearch2, MoveRight, NotepadText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { user } from "./constant";
@@ -68,7 +68,7 @@ const UserMenu = () => {
               </Link>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            {currentRole === "Recruiter" && (
+            {currentRole === "Recruiter" ? (
               <>
                 <DropdownMenuGroup>
                   <Link to="/recruiter/job-descriptions">
@@ -80,7 +80,19 @@ const UserMenu = () => {
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
               </>
-            )}
+            ) : currentRole === "Candidate" ? (
+              <>
+                <DropdownMenuGroup>
+                  <Link to="/candidate/introduction">
+                    <DropdownMenuItem>
+                      <NotepadText className="mr-2 h-4 w-4" />
+                      <span>Start my test</span>
+                    </DropdownMenuItem>
+                  </Link>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+              </>
+            ) : null}
             <DropdownMenuItem>
               <LogOut className="mr-2 h-4 w-4" />
               <span>Log out</span>

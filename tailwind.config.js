@@ -18,6 +18,7 @@ export default {
       },
       colors: {
 		rocken: {
+      "blue-600": "#215eef",
 			"blue-500": "#4893f4",
 			"blue-400": "#71adfd",
 			"blue-300": "#b3d4ff",
