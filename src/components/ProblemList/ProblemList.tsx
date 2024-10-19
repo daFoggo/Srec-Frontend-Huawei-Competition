@@ -16,7 +16,7 @@ export const ProblemList = ({
 }: ProblemListProps) => {
   return (
     <div className="w-full overflow-y-auto p-1">
-      <h2 className="text-3xl font-bold mb-4 text-rocken-blue-500">Problems</h2>
+      <h2 className="text-3xl font-semibold mb-4 text-rocken-blue-500 font-clash">Problems</h2>
       {problems?.map((problem) => {
         const session = sessions.find((s) => s.problemId === problem.id);
         return (

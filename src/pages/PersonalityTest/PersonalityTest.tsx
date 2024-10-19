@@ -85,10 +85,10 @@ const PersonalityTest = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="text-center">
-            <h1 className="text-3xl sm:text-3xl font-bold text-white">
+            <h1 className="text-3xl sm:text-3xl font-semibold font-clash text-white">
               Personality Test
             </h1>
-            <p className="text-base sm:text-xl font-semibold text-white/80 mt-2">
+            <p className="text-base sm:text-xl font-medium font-clash text-white/80 mt-2">
               Based on Big 5 Personality Traits
             </p>
           </div>

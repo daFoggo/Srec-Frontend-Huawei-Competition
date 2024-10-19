@@ -93,8 +93,8 @@ const CandidateRanking = () => {
 
       <div className="flex flex-col gap-6">
         <div>
-          <h1 className="font-bold text-3xl">CV ranking for</h1>
-          <p className="text-sm font-semibold text-rocken-subtle">
+          <h1 className="font-semibold font-clash text-3xl">CV ranking for</h1>
+          <p className="text-lg font-medium font-clash text-rocken-subtle">
             {job?.name}
           </p>
         </div>

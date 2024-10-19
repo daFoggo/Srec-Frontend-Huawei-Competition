@@ -185,7 +185,7 @@ const VirtualInterview = () => {
             <CardContent className="h-full p-4 flex flex-col justify-between gap-6">
               {/* Progress */}
               <div>
-                <h3 className="font-semibold text-2xl mb-4 text-rocken-blue-500">
+                <h3 className="font-semibold font-clash text-2xl mb-4 text-rocken-blue-500">
                   Virtual Interview
                 </h3>
                 <div className="relative pt-1">

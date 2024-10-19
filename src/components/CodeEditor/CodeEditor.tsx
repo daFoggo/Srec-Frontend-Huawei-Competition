@@ -50,7 +50,7 @@ export const CodeEditor = ({
   return (
     <div className="w-full h-full flex flex-col gap-6 p-1">
       <div className=" flex justify-between items-start">
-        <h2 className="text-3xl font-bold text-rocken-blue-500">
+        <h2 className="text-3xl font-semibold font-clash text-rocken-blue-500">
           {problem.name}
         </h2>
         <Select onValueChange={handleLanguageChange} value={session.language}>

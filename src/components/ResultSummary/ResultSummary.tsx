@@ -17,7 +17,7 @@ export const ResultsSummary = ({ sessions }: ResultsSummaryProps) => {
   return (
     <div className="w-full flex flex-col gap-6 p-1">
       <div>
-        <h2 className="text-3xl text-rocken-blue-500 font-bold mb-4">
+        <h2 className="text-3xl text-rocken-blue-500 font-semibold font-clash mb-4">
           Progress
         </h2>
         <Progress

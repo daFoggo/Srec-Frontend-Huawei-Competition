@@ -31,7 +31,7 @@ const JobDescriptions = () => {
   return (
     <div className="p-6 font-inter">
       {isLoading && <LoadingOverlay isLoading={isLoading} />}
-      <h1 className=" font-bold text-3xl">Job descriptions</h1>
+      <h1 className="font-semibold font-clash text-3xl">Job descriptions</h1>
       <DataTable columns={JobDescriptionsColumn} data={jobDescriptionData} />
     </div>
   );
