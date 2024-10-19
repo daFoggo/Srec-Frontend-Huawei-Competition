@@ -85,13 +85,6 @@ const RootNavBar = () => {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link to="/about" className={linkClass("/about")}>
-                    About the project
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
                   <Link to="/contact" className={linkClass("/contact")}>
                     Contact
                   </Link>

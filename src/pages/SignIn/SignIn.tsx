@@ -85,7 +85,7 @@ const SignIn = () => {
       >
         <Card className="font-inter backdrop-blur-sm bg-white/50">
           <CardHeader>
-            <CardTitle className="text-3xl font-bold">Sign in</CardTitle>
+            <CardTitle className="text-3xl sm:text-4xl font-semibold bg-gradient-to-t from-rocken-blue-300 to-rocken-blue-500 bg-clip-text text-transparent">Sign in</CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent>
