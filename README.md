@@ -1,3 +1,7 @@
+# 1. About the project
+- New version of SREC platform built for Huawei Competition
+
+# 2. Project structure
 ```
 └── 📁srec-frontend
     └── 📁public
