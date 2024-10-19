@@ -6,7 +6,7 @@ import { Toaster } from "sonner";
 const CandidateLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <header>
+      <header className="z-10">
         <CandidateNavBar />
       </header>
       <main className="flex-grow">
@@ -20,7 +20,7 @@ const CandidateLayout = () => {
           position="top-center"
         />
       </main>
-      <footer>
+      <footer className="z-10">
         <RootFooter />
       </footer>
     </div>

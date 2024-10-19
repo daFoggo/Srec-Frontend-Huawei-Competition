@@ -6,7 +6,7 @@ import RootFooter from "@/components/RootFooter/RootFooter";
 const RootLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <header>
+      <header className="z-10">
         <RootNavBar />
       </header>
       <main className="flex-grow">
@@ -20,7 +20,7 @@ const RootLayout = () => {
           position="top-center"
         />
       </main>
-      <footer>
+      <footer className="z-10">
         <RootFooter />
       </footer>
     </div>

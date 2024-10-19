@@ -31,13 +31,13 @@ const ParticlesBackground = () => {
           color: { value: "transparent" },
         },
         particles: {
-          color: { value: "#18181b" },
+          color: { value: "#5da0f6" },
           number: { value: 100, density: { enable: true } },
           move: { enable: true, speed: 1 },
           size: { value: { min: 1, max: 3 } },
         },
       }}
-      className="absolute inset-0 -z-10"
+      className="absolute inset-0"
     />
   );
 };
