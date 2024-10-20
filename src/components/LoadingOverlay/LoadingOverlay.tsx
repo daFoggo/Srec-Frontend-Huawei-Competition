@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from "framer-motion";
 
 const LoadingOverlay = ({
@@ -25,8 +26,8 @@ const LoadingOverlay = ({
   };
 
   const circleVariants = {
-    start: { y: "0%", opacity: 0.5 },
-    end: { y: "100%", opacity: 1 },
+    start: { scale: 0.8, opacity: 0.5 },
+    end: { scale: 1, opacity: 1 },
   };
 
   return (
@@ -37,14 +38,12 @@ const LoadingOverlay = ({
       transition={{ duration: 0.3 }}
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
         zIndex: 9999,
       }}
     >
@@ -64,14 +63,15 @@ const LoadingOverlay = ({
             key={index}
             style={{
               display: "block",
-              width: size / 5,
-              height: size / 5,
+              width: size / 4,
+              height: size / 4,
               backgroundColor: color,
               borderRadius: "50%",
+              boxShadow: `0 0 10px ${color}`,
             }}
             variants={circleVariants}
             transition={{
-              duration: 0.3,
+              duration: 0.5,
               repeat: Infinity,
               repeatType: "reverse",
               ease: "easeInOut",

@@ -18,6 +18,7 @@ import { Users } from "lucide-react";
 import axios from "axios";
 import { PERCENTAGE_OPTIONS } from "@/utils/constant";
 import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CandidateRanking = () => {
   const location = useLocation();
@@ -36,6 +37,8 @@ const CandidateRanking = () => {
   const getJobDescriptions = async () => {
     setIsLoading(true);
     try {
+      // Simulating API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       toast.success("Ranking data loaded successfully");
     } catch (error) {
       console.log(error);
@@ -87,19 +90,52 @@ const CandidateRanking = () => {
     getJobDescriptions();
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
+
   return (
-    <div className="p-6 font-inter">
-      {isLoading && <LoadingOverlay isLoading={isLoading} />}
+    <motion.div 
+      className="p-6 font-inter"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      {/* <AnimatePresence>
+        {isLoading && <LoadingOverlay isLoading={isLoading} />}
+      </AnimatePresence> */}
 
-      <div className="flex flex-col gap-6">
-        <div>
-          <h1 className="font-semibold font-clash text-3xl">CV ranking for</h1>
-          <p className="text-lg font-medium font-clash text-rocken-subtle">
+      <motion.div className="flex flex-col gap-6" variants={itemVariants}>
+        <motion.div variants={itemVariants}>
+        <motion.h1
+        className="font-clash font-semibold text-3xl text-rocken-blue-500"
+        variants={itemVariants}
+      >
+        CV ranking for
+      </motion.h1>
+          <motion.p 
+            className="text-lg font-medium font-clash text-rocken-subtle"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
             {job?.name}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="flex gap-4 items-center">
+        <motion.div className="flex gap-4 items-center" variants={itemVariants}>
           <Select onValueChange={setSelectedPercentage}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select percentage of candidates" />
@@ -113,15 +149,20 @@ const CandidateRanking = () => {
             </SelectContent>
           </Select>
 
-          <Button
-            variant="default"
-            onClick={() => setShowConfirmDialog(true)}
-            disabled={!selectedPercentage}
-            className="bg-violet-500 hover:bg-violet-600 text-white"
-            icon={<Users className="h-4 w-4" />}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Bulk Pass
-          </Button>
+            <Button
+              variant="default"
+              onClick={() => setShowConfirmDialog(true)}
+              disabled={!selectedPercentage}
+              className="bg-violet-500 hover:bg-violet-600 text-white"
+              icon={<Users className="h-4 w-4" />}
+            >
+              Bulk Pass
+            </Button>
+          </motion.div>
 
           <ConfirmDialog
             isOpen={showConfirmDialog}
@@ -133,14 +174,16 @@ const CandidateRanking = () => {
             confirmText="Accept"
             confirmVariant="default"
           />
-        </div>
+        </motion.div>
 
-        <DataTable
-          columns={CandidateRankingColumns}
-          data={candidateRankingData}
-        />
-      </div>
-    </div>
+        <motion.div variants={itemVariants}>
+          <DataTable
+            columns={CandidateRankingColumns}
+            data={candidateRankingData}
+          />
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

@@ -83,9 +83,11 @@ export const JobDescriptionsColumn: ColumnDef<IJobDescription>[] = [
     cell: ({ row }) => {
       const job = row.original;
       const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+      const navigate = useNavigate();
 
       const handleProcess = () => {
         localStorage.setItem("job", JSON.stringify(job));
+        navigate("/recruiter/candidate-ranking/" + job.id);
       };
 
       return (
