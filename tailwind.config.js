@@ -30,7 +30,8 @@ export default {
 			"sand-200": "#ffc58e",
       "sand-100": "#ffebd5",
       "sand-50": "#fff6ed",
-			"subtle": "#a3afb9"
+			"subtle": "#a3afb9",
+      "ground": "#f9f9fa",
 		},
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

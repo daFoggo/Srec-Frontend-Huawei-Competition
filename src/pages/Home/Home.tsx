@@ -29,7 +29,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen">
+    <div className="flex flex-col lg:flex-row">
       {/* Left side */}
       <motion.div
         className="w-full lg:w-1/2 relative overflow-hidden p-8 lg:p-12 text-white bg-gradient-to-b from-rocken-blue-500 to-rocken-blue-200"
@@ -62,7 +62,7 @@ const Home = () => {
 
       {/* Right side */}
       <motion.div
-        className="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col gap-8 lg:gap-12 items-center overflow-y-auto max-h-screen"
+        className="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col gap-8 lg:gap-12 items-center overflow-y-auto h-screen"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}

@@ -18,6 +18,7 @@ import { useState } from "react";
 import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
 import { toast } from "sonner";
 import axios from "axios";
+import CandidateProfileDialog from "@/components/CandidateProfileDialog/CandidateProfileDialog";
 
 const DynamicField = ({
   id,
@@ -121,83 +122,7 @@ export const CandidateRankingColumns: ColumnDef<ICandidateRanking>[] = [
 
       return (
         <div className="flex gap-2 items-center">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-rocken-blue-500 bg-rocken-blue-200 text-rocken-blue-500 hover:bg-rocken-blue-200/90 hover:text-rocken-blue-500/90 transition-colors"
-                icon={<Eye className="h-4 w-4" />}
-              >
-                View
-              </Button>
-            </DialogTrigger>
-            <DialogContent
-              className="w-full max-w-3xl h-[90vh] overflow-hidden flex flex-col font-inter"
-              onOpenAutoFocus={(e) => e.preventDefault()}
-            >
-              <DialogHeader className="px-6 py-4 border-b">
-                <DialogTitle className="text-xl font-bold text-rocken-blue-500">
-                  {candidate.name}
-                </DialogTitle>
-              </DialogHeader>
-
-              <div className="flex-1 overflow-y-auto px-6 py-4">
-                <div className="flex flex-col gap-6">
-                  <DynamicField
-                    id="matching_score"
-                    label="Matching score"
-                    value={candidate.matching_score}
-                  />
-                  <DynamicField id="age" label="Age" value={candidate.age} />
-                  <DynamicField
-                    id="experience"
-                    label="Experience"
-                    value={candidate.experience}
-                    className="md:col-span-2"
-                  />
-                  <DynamicField
-                    id="academic"
-                    label="Academic"
-                    value={candidate.academic}
-                  />
-                  <DynamicField
-                    id="major"
-                    label="Major"
-                    value={candidate.major}
-                  />
-                  <DynamicField
-                    id="email"
-                    label="Email"
-                    value={candidate.email}
-                  />
-                  <DynamicField
-                    id="skills"
-                    label="Skills"
-                    value={candidate.skills}
-                    className="md:col-span-2"
-                  />
-                  <DynamicField
-                    id="certification"
-                    label="Certification"
-                    value={candidate.certification}
-                    className="md:col-span-2"
-                  />
-                  <DynamicField
-                    id="personality"
-                    label="Personality"
-                    value={candidate.personality}
-                    className="md:col-span-2"
-                  />
-                  <DynamicField
-                    id="language"
-                    label="Language"
-                    value={candidate.language}
-                  />
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <CandidateProfileDialog candidate={candidate} isColumnItem={true} />
 
           <Button
             variant="outline"

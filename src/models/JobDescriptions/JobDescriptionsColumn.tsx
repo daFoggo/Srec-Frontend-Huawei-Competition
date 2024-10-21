@@ -16,6 +16,7 @@ import { shouldUseTextarea, truncateText } from "@/utils/helper";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
+import JobDescriptionsDialog from "@/components/JobDescriptionsDialog/JobDescriptionsDialog";
 
 const DynamicField = ({
   id,
@@ -92,50 +93,7 @@ export const JobDescriptionsColumn: ColumnDef<IJobDescription>[] = [
 
       return (
         <div className="flex gap-2 items-center">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-rocken-blue-500 bg-rocken-blue-200 text-rocken-blue-500 hover:bg-rocken-blue-200/90 hover:text-rocken-blue-500/90 transition-colors"
-                icon={<Eye className="h-4 w-4" />}
-              >
-                View
-              </Button>
-            </DialogTrigger>
-            <DialogContent
-              className="w-full max-w-3xl h-[90vh] overflow-hidden flex flex-col font-inter"
-              onOpenAutoFocus={(e) => e.preventDefault()}
-            >
-              <DialogHeader className="px-6 py-4 border-b">
-                <DialogTitle className="text-xl font-bold text-rocken-blue-500">
-                  {job.name}
-                </DialogTitle>
-              </DialogHeader>
-
-              <div className="flex-1 overflow-y-auto px-6 py-4">
-                <div className="flex flex-col gap-6">
-                  <DynamicField
-                    id="description"
-                    label="Description"
-                    value={job.description}
-                  />
-                  <DynamicField
-                    id="skills_required"
-                    label="Skills Required"
-                    value={job.skills_required}
-                  />
-                  <DynamicField id="level" label="Level" value={job.level} />
-                  <DynamicField
-                    id="applied"
-                    label="Applied"
-                    value={job.applied}
-                  />
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
-
+          <JobDescriptionsDialog job={job} isColumnItem={true} />
           <Button
             variant="outline"
             size="sm"
