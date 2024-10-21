@@ -2,7 +2,7 @@ import { createBrowserRouter, RouteObject } from "react-router-dom";
 import routes from "./routerConfig";
 import RootLayout from "@/layouts/RootLayout/RootLayout";
 import Home from "@/pages/Home/Home";
-import Contact from "@/pages/Contact/Contact";
+import Contact from "@/pages/CandidateRanking/Contact/Contact";
 import SignIn from "@/pages/SignIn/SignIn";
 import Profile from "@/pages/Profile/Profile";
 import RecruiterLayout from "@/layouts/RecruiterLayout/RecruiterLayout";

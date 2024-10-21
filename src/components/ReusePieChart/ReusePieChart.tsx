@@ -1,9 +1,5 @@
-"use client";
-
-import * as React from "react";
-import { TrendingUp, TrendingDown } from "lucide-react";
-import { Cell, Label, Pie, PieChart, ResponsiveContainer } from "recharts";
-
+import React from "react";
+import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import {
   Card,
   CardContent,
@@ -23,12 +19,12 @@ type ChartData = {
   [key: string]: number;
 };
 
-interface ReuseDonutChartProps {
+interface ReusablePieChartProps {
   data: ChartData;
   title: string;
   description?: string;
-  trendPercentage?: number;
-  footerText?: string;
+  leftFooterText?: string;
+  rightFooterText?: string;
 }
 
 const chartColors = [
@@ -37,21 +33,22 @@ const chartColors = [
   "hsl(216, 92%, 60%)",
   "hsl(210, 98%, 78%)",
   "hsl(212, 97%, 87%)",
+  "#c4b5fd",
+  "#a5b4fc",
 ];
 
-const ReuseDonutChart = ({
+const ReusablePieChart = ({
   data,
   title,
   description,
-  trendPercentage,
-  footerText,
-}: ReuseDonutChartProps) => {
-  // map data
+  leftFooterText,
+  rightFooterText,
+}: ReusablePieChartProps) => {
   const chartData = React.useMemo(
     () =>
       Object.entries(data).map(([name, value]) => ({
         name,
-        value,
+        value: Math.round(value * 100) / 100, // round to 2 decimal places
       })),
     [data]
   );
@@ -101,9 +98,11 @@ const ReuseDonutChart = ({
                 data={chartData}
                 dataKey="value"
                 nameKey="name"
-                innerRadius={60}
+                cx="50%"
+                cy="50%"
                 outerRadius={80}
-                strokeWidth={5}
+                fill="#8884d8"
+                label
               >
                 {chartData.map((entry, index) => (
                   <Cell
@@ -111,56 +110,16 @@ const ReuseDonutChart = ({
                     fill={chartColors[index % chartColors.length]}
                   />
                 ))}
-                <Label
-                  content={({ viewBox }) => {
-                    if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                      return (
-                        <text
-                          x={viewBox.cx}
-                          y={viewBox.cy}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                        >
-                          <tspan
-                            x={viewBox.cx}
-                            y={viewBox.cy}
-                            className="fill-foreground text-3xl font-bold"
-                          >
-                            {largestValue.value.toFixed(1)}%
-                          </tspan>
-                          <tspan
-                            x={viewBox.cx}
-                            y={(viewBox.cy || 0) + 24}
-                            className="fill-muted-foreground text-sm"
-                          >
-                            {largestValue.name}
-                          </tspan>
-                        </text>
-                      );
-                    }
-                  }}
-                />
               </Pie>
             </PieChart>
           </ResponsiveContainer>
         </ChartContainer>
       </CardContent>
-      {(trendPercentage !== undefined || footerText) && (
+      {(largestValue !== undefined || leftFooterText || rightFooterText) && (
         <CardFooter className="flex-col gap-2 text-sm">
-          {trendPercentage !== undefined && (
-            <div className="flex items-center gap-2 font-medium leading-none">
-              Trending {trendPercentage > 0 ? "up" : "down"} by{" "}
-              {Math.abs(trendPercentage)}% this month
-              {trendPercentage > 0 ? (
-                <TrendingUp className="h-4 w-4" />
-              ) : (
-                <TrendingDown className="h-4 w-4" />
-              )}
-            </div>
-          )}
-          {footerText && (
-            <div className="leading-none text-muted-foreground">
-              {footerText}
+          {largestValue !== undefined && (
+            <div className="font-medium text-center">
+              {leftFooterText} <b>{largestValue.name}</b> {rightFooterText}
             </div>
           )}
         </CardFooter>
@@ -169,4 +128,4 @@ const ReuseDonutChart = ({
   );
 };
 
-export default ReuseDonutChart;
+export default ReusablePieChart;

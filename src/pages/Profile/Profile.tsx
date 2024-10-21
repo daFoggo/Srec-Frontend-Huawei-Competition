@@ -17,7 +17,7 @@ const Profile = () => {
           {icon}
           <Label>{label}</Label>
         </div>
-        <Input value={value} disabled className="w-3/4 bg-rocken-blue-200 border-rocken-blue-100" />
+        <Input value={value} readOnly className="w-3/4 bg-rocken-blue-1`00 border-rocken-blue-100" />
       </motion.div>
     );
   };
