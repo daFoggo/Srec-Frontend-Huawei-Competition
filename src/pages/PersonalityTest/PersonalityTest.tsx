@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import personalityTestBackground from "@/assets/images/PersonalityTest/personality_test_background.png";
-import { Card, CardContent } from "@/components/ui/card";
+import axios from "axios";
+import { toast } from "sonner";
+
 import { Heart, Ruler, Turtle } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import PersonalityQuestion from "@/components/PersonalityQuestion/PersonalityQuestion";
 import { questions } from "./constant";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
-import axios from "axios";
-import { toast } from "sonner";
+import personalityTestBackground from "@/assets/images/PersonalityTest/personality_test_background.png";
 
 const PersonalityTest = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -37,7 +38,7 @@ const PersonalityTest = () => {
     setIsSubmitting(true);
     const submissionData = questions.map((question) => ({
       id: question.id,
-      code: question.code,
+      type: question.type,
       answer: answers[question.id],
     }));
 
