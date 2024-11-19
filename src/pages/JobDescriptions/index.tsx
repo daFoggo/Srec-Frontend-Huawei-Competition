@@ -1,10 +1,10 @@
 import { jobDescriptions } from "./constant";
 import { useEffect, useState } from "react";
-import { IJobDescription } from "@/models/JobDescriptions/JobDescriptions";
-import { JobDescriptionsColumn } from "@/models/JobDescriptions/JobDescriptionsColumn";
+import { IJobDescription } from "@/models/JobDescriptions/type";
+import { JobDescriptionsColumn } from "@/models/JobDescriptions/columns";
 import axios from "axios";
 import { toast } from "sonner";
-import LoadingOverlay from "@/components/LoadingOverlay/LoadingOverlay";
+import LoadingOverlay from "@/components/LoadingOverlay";
 import { DataTable } from "@/components/ui/data-table";
 import { motion, AnimatePresence } from "framer-motion";
 

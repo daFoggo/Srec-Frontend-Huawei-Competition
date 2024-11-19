@@ -1,21 +1,21 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import routes from "./routerConfig";
-import RootLayout from "@/layouts/RootLayout/RootLayout";
-import Home from "@/pages/Home/Home";
-import Contact from "@/pages/CandidateRanking/Contact/Contact";
-import SignIn from "@/pages/SignIn/SignIn";
-import Profile from "@/pages/Profile/Profile";
-import RecruiterLayout from "@/layouts/RecruiterLayout/RecruiterLayout";
-import JobDescriptions from "@/pages/JobDescriptions/JobDescriptions";
-import CandidateLayout from "@/layouts/CandidateLayout/CandidateLayout";
-import CandidateRanking from "@/pages/CandidateRanking/CandidateRanking";
-import Dashboard from "@/pages/Dashboard/Dashboard";
-import CandidateSummary from "@/pages/CandidateSummary/CandidateSummary";
-import Introduction from "@/pages/Introduction/Introduction";
-import PersonalityTest from "@/pages/PersonalityTest/PersonalityTest";
-import CodeAssessment from "@/pages/CodeAssessment/CodeAssessment";
-import VirtualInterview from "@/pages/VirtualInterview/VirtualInterview";
-import ThankYou from "@/pages/ThankYou/ThankYou";
+import RootLayout from "@/layouts/RootLayout";
+import Home from "@/pages/Home";
+import Contact from "@/pages/Contact";
+import SignIn from "@/pages/SignIn";
+import Profile from "@/pages/Profile";
+import RecruiterLayout from "@/layouts/RecruiterLayout";
+import JobDescriptions from "@/pages/JobDescriptions";
+import CandidateLayout from "@/layouts/CandidateLayout";
+import CandidateRanking from "@/pages/CandidateRanking";
+import Dashboard from "@/pages/Dashboard";
+import CandidateSummary from "@/pages/CandidateSummary";
+import Introduction from "@/pages/Introduction";
+import PersonalityTest from "@/pages/PersonalityTest";
+import CodeAssessment from "@/pages/CodeAssessment";
+import VirtualInterview from "@/pages/VirtualInterview";
+import ThankYou from "@/pages/ThankYou";
 
 const routeLayout: RouteObject[] = [
   {

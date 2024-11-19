@@ -1,64 +1,16 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { ICandidateRanking } from "./CandidateRanking";
+import { ICandidateRanking } from "./type";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Eye, ThumbsUp } from "lucide-react";
+import { ThumbsUp } from "lucide-react";
 import { shouldUseTextarea, truncateText } from "@/utils/helper";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
+import ConfirmDialog from "@/components/ConfirmDialog";
 import { toast } from "sonner";
 import axios from "axios";
-import CandidateProfileDialog from "@/components/CandidateProfileDialog/CandidateProfileDialog";
-
-const DynamicField = ({
-  id,
-  label,
-  value,
-  className = "",
-}: {
-  id: string;
-  label: string;
-  value: String | Number;
-  className?: string;
-}) => {
-  const stringValue = String(value);
-  const useTextarea = shouldUseTextarea(stringValue);
-
-  return (
-    <div className={`space-y-2 ${className}`}>
-      <Label htmlFor={id} className="font-semibold text-sm">
-        {label}
-      </Label>
-      {useTextarea ? (
-        <Textarea
-          id={id}
-          value={stringValue}
-          readOnly
-          autoFocus={false}
-          className="bg-gray-50 min-h-[100px] resize-none w-full text-sm"
-        />
-      ) : (
-        <Input
-          id={id}
-          value={stringValue}
-          readOnly
-          autoFocus={false}
-          className="bg-gray-50 w-full text-sm"
-        />
-      )}
-    </div>
-  );
-};
+import CandidateProfileDialog from "@/components/CandidateProfileDialog";
 
 export const CandidateRankingColumns: ColumnDef<ICandidateRanking>[] = [
   {

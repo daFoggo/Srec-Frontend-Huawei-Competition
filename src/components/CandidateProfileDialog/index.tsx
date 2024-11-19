@@ -18,7 +18,7 @@ import {
   Calendar,
   Eye,
 } from "lucide-react";
-import { ICandidateRanking } from "@/models/CandidateRanking/CandidateRanking";
+import { ICandidateRanking } from "@/models/CandidateRanking/type";
 import { Progress } from "../ui/progress";
 const CandidateProfileDialog = ({
   candidate,
@@ -29,7 +29,7 @@ const CandidateProfileDialog = ({
 }) => {
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         {isColumnItem ? (
           <Button
             variant="outline"
@@ -97,7 +97,11 @@ const CandidateProfileDialog = ({
           </p>
           <div className="flex items-center mt-2">
             <Progress
-              value={candidate?.matching_score * 100}
+              value={
+                typeof candidate?.matching_score === "number"
+                  ? candidate.matching_score * 100
+                  : 0
+              }
               className="h-4 sm:h-3 [&>*]:bg-gradient-to-r from-rocken-blue-100 via-rocken-blue-300 to-rocken-blue-500"
             ></Progress>
             <span className="ml-4 font-semibold">

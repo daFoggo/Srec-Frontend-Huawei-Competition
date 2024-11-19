@@ -6,7 +6,7 @@ import {
   codeAssessmentData,
   virtualInterviewData,
 } from "./constant";
-import StatisticBlock from "@/components/StatisticBlock/StatisticBlock";
+import StatisticBlock from "@/components/StatisticBlock";
 import {
   BadgeCheck,
   GitCompare,
@@ -19,9 +19,9 @@ import {
 import { Avatar } from "@/components/ui/avatar";
 import { AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import CandidateProfileDialog from "@/components/CandidateProfileDialog/CandidateProfileDialog";
-import ReuseDonutChart from "@/components/ReuseDonutChart/ReuseDonutChart";
-import EmotionChart from "@/components/EmotionChart/EmotionChart";
+import CandidateProfileDialog from "@/components/CandidateProfileDialog";
+import ReuseDonutChart from "@/components/ReuseDonutChart";
+import EmotionChart from "@/components/EmotionChart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -40,7 +40,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import ReusablePieChart from "@/components/ReusePieChart/ReusePieChart";
+import ReusablePieChart from "@/components/ReusePieChart";
 
 const Dashboard = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);

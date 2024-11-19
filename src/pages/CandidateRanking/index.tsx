@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
-import LoadingOverlay from "@/components/LoadingOverlay/LoadingOverlay";
+import LoadingOverlay from "@/components/LoadingOverlay";
 import { DataTable } from "@/components/ui/data-table";
 import { useState, useEffect } from "react";
 import { candidates } from "./constant";
-import { CandidateRankingColumns } from "@/models/CandidateRanking/CandidateRankingColumn";
-import { ICandidateRanking } from "@/models/CandidateRanking/CandidateRanking";
+import { CandidateRankingColumns } from "@/models/CandidateRanking/columns";
+import { ICandidateRanking } from "@/models/CandidateRanking/type";
 import { toast } from "sonner";
 import {
   Select,
@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Users } from "lucide-react";
 import axios from "axios";
 import { PERCENTAGE_OPTIONS } from "@/utils/constant";
-import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
+import ConfirmDialog from "@/components/ConfirmDialog";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CandidateRanking = () => {
@@ -38,7 +38,7 @@ const CandidateRanking = () => {
     setIsLoading(true);
     try {
       // Simulating API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       toast.success("Ranking data loaded successfully");
     } catch (error) {
       console.log(error);
@@ -92,22 +92,22 @@ const CandidateRanking = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         when: "beforeChildren",
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    visible: { y: 0, opacity: 1 },
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="p-6 font-inter"
       variants={containerVariants}
       initial="hidden"
@@ -119,13 +119,13 @@ const CandidateRanking = () => {
 
       <motion.div className="flex flex-col gap-6" variants={itemVariants}>
         <motion.div variants={itemVariants}>
-        <motion.h1
-        className="font-clash font-semibold text-3xl text-rocken-blue-500"
-        variants={itemVariants}
-      >
-        CV ranking for
-      </motion.h1>
-          <motion.p 
+          <motion.h1
+            className="font-clash font-semibold text-3xl text-rocken-blue-500"
+            variants={itemVariants}
+          >
+            CV ranking for
+          </motion.h1>
+          <motion.p
             className="text-lg font-medium font-clash text-rocken-subtle"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -148,21 +148,15 @@ const CandidateRanking = () => {
               ))}
             </SelectContent>
           </Select>
-
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Button
+            variant="default"
+            onClick={() => setShowConfirmDialog(true)}
+            disabled={!selectedPercentage}
+            className="bg-violet-500 hover:bg-violet-600 text-white"
+            icon={<Users className="h-4 w-4" />}
           >
-            <Button
-              variant="default"
-              onClick={() => setShowConfirmDialog(true)}
-              disabled={!selectedPercentage}
-              className="bg-violet-500 hover:bg-violet-600 text-white"
-              icon={<Users className="h-4 w-4" />}
-            >
-              Bulk Pass
-            </Button>
-          </motion.div>
+            Bulk Pass
+          </Button>
 
           <ConfirmDialog
             isOpen={showConfirmDialog}

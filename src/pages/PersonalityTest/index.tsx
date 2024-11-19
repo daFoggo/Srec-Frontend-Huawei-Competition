@@ -5,11 +5,11 @@ import { toast } from "sonner";
 
 import { Heart, Ruler, Turtle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import PersonalityQuestion from "@/components/PersonalityQuestion/PersonalityQuestion";
+import PersonalityQuestion from "@/components/PersonalityQuestion";
 import { questions } from "./constant";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
+import ConfirmDialog from "@/components/ConfirmDialog";
 import personalityTestBackground from "@/assets/images/PersonalityTest/personality_test_background.png";
 
 const PersonalityTest = () => {

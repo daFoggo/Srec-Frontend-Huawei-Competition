@@ -1,5 +1,5 @@
 import { Progress } from "@/components/ui/progress";
-import { ResultsSummaryProps } from "@/models/CodeAssessment/CodeAssessment";
+import { ResultsSummaryProps } from "@/models/CodeAssessment/type";
 import { Button } from "../ui/button";
 import { MoveRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";

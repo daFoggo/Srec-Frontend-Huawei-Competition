@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { codingProblems, initialUserSessions } from "./constant";
-import { UserSession } from "@/models/CodeAssessment/CodeAssessment";
-import { ProblemList } from "@/components/ProblemList/ProblemList";
-import { CodeEditor } from "@/components/CodeEditor/CodeEditor";
-import { ResultsSummary } from "@/components/ResultSummary/ResultSummary";
+import { UserSession } from "@/models/CodeAssessment/type";
+import { ProblemList } from "@/components/ProblemList";
+import { CodeEditor } from "@/components/CodeEditor";
+import { ResultsSummary } from "@/components/ResultSummary";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const CodeAssessment = () => {

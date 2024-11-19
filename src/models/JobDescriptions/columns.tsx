@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { IJobDescription } from "./JobDescriptions";
+import { IJobDescription } from "./type";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,8 +15,8 @@ import { ExternalLink, Eye } from "lucide-react";
 import { shouldUseTextarea, truncateText } from "@/utils/helper";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
-import JobDescriptionsDialog from "@/components/JobDescriptionsDialog/JobDescriptionsDialog";
+import ConfirmDialog from "@/components/ConfirmDialog";
+import JobDescriptionsDialog from "@/components/JobDescriptionsDialog";
 
 const DynamicField = ({
   id,

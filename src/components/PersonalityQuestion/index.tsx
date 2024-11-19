@@ -1,4 +1,4 @@
-import { IPersonalityQuestionProps } from "@/models/PersonalityTest/PersonalityTest";
+import { IPersonalityQuestionProps } from "@/models/PersonalityTest/type";
 
 export default function PersonalityQuestion({
   question,

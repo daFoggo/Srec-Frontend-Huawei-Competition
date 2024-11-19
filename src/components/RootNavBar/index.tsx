@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -11,37 +11,27 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { motion, AnimatePresence } from "framer-motion";
-import UserMenu from "../UserMenu/UserMenu";
-import navbarBackground from "@/assets/images/NavBar/navbar_ background.png";
+import UserMenu from "../UserMenu";
 
-const RecruiterNavBar = () => {
+const RootNavBar = () => {
   const location = useLocation();
-  const [jobId, setJobId] = useState<Number | null>();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-
-  useEffect(() => {
-    const job = localStorage.getItem("job");
-    if (job) {
-      const parsedJob = JSON.parse(job);
-      setJobId(parsedJob.id);
-    }
-
-    return () => {
-      setJobId(null)
-    }
-  }, []);
+  {
+    /* Active color */
+  }
+  const isActive = (path: string) => location.pathname === path;
 
   const linkClass = (path: string) =>
     `group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 font-clash font-medium transition-colors duration-300 ${
       isActive(path)
-        ? "bg-rocken-blue-200 text-rocken-blue-500"
-        : "hover:bg-rocken-blue-200 hover:text-rocken-blue-500/90 text-white transition-colors"
-    } focus:bg-rocken-blue-200 focus:text-rocken-blue-500/90 focus:outline-none disabled:pointer-events-none disabled:opacity-50`;
+        ? "bg-rocken-blue-100 text-rocken-blue-500"
+        : "hover:bg-rocken-blue-100 hover:text-rocken-blue-500 transition-colors "
+    } focus:bg-rocken-blue-100 focus:text-rocken-blue-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50`;
 
+  {
+    /* Mobile menu */
+  }
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const menuVariants = {
@@ -69,64 +59,45 @@ const RecruiterNavBar = () => {
   };
 
   return (
-    <div
-      className="py-4 px-4 md:px-12 border-b shadow-sm border-gray-300"
-      style={{
-        backgroundImage: `url(${navbarBackground})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="py-4 px-4 md:px-12 border-b shadow-sm border-gray-300">
       <div className="flex items-center justify-between">
+        {/* Logo */}
         <Link to="/">
           <Button
             variant="outline"
-            className="flex gap-2 items-center font-clash font-semibold text-2xl md:text-3xl border-transparent text-rocken-blue-500 bg-transparent hover:text-rocken-blue-500/90 hover:bg-rocken-blue-200 transition-colors"
+            className="flex gap-2 items-center font-clash font-semibold text-2xl md:text-3xl border-transparent hover:text-rocken-blue-500 transition-colors"
             whileHover={{ scale: 1.05 }}
           >
             SREC
           </Button>
         </Link>
 
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-4">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link
-                    to="/recruiter/job-descriptions"
-                    className={linkClass("/recruiter/job-descriptions")}
-                  >
-                    Job descriptions
+                  <Link to="/" className={linkClass("/")}>
+                    Home
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link
-                    to={`/recruiter/candidate-ranking/${jobId}`}
-                    className={linkClass(`/recruiter/candidate-ranking/${jobId}`)}
-                  >
-                    Candidate Ranking
+                  <Link to="/contact" className={linkClass("/contact")}>
+                    Contact
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    to="/recruiter/dashboard"
-                    className={linkClass("/recruiter/dashboard")}
-                  >
-                    Dashboard
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              {/* Sign In Button */}
             </NavigationMenuList>
           </NavigationMenu>
           <UserMenu />
         </div>
 
-        <button className="md:hidden text-white" onClick={toggleMenu}>
+        {/* Mobile Menu Button */}
+        <button className="md:hidden" onClick={toggleMenu}>
           {isMenuOpen ? (
             <X className="h-6 w-6" />
           ) : (
@@ -135,6 +106,7 @@ const RecruiterNavBar = () => {
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -179,4 +151,4 @@ const RecruiterNavBar = () => {
   );
 };
 
-export default RecruiterNavBar;
+export default RootNavBar;

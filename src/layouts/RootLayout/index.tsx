@@ -1,13 +1,13 @@
-import CandidateNavBar from "@/components/CandidateNavBar/CandidateNavBar";
-import RootFooter from "@/components/RootFooter/RootFooter";
 import { Outlet } from "react-router-dom";
-import { Toaster } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
+import RootNavBar from "@/components/RootNavBar";
+import RootFooter from "@/components/RootFooter";
 
-const CandidateLayout = () => {
+const RootLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="z-10">
-        <CandidateNavBar />
+        <RootNavBar />
       </header>
       <main className="flex-grow">
         <Outlet />
@@ -27,4 +27,4 @@ const CandidateLayout = () => {
   );
 };
 
-export default CandidateLayout;
+export default RootLayout;

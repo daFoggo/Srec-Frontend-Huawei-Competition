@@ -6,11 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { CirclePause, CirclePlay, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import ConfirmDialog from "@/components/ConfirmDialog/ConfirmDialog";
+import ConfirmDialog from "@/components/ConfirmDialog";
 import { motion } from "framer-motion";
-import InterviewWebcam from "@/components/InterviewWebcam/WebcamComponent";
+import InterviewWebcam from "@/components/InterviewWebcam";
 import { interviewQuestions } from "./constant";
-import { RecordedChunk } from "@/models/VirtualInterview/VirtualInterview";
+import { RecordedChunk } from "@/models/VirtualInterview/type";
 
 const VirtualInterview = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

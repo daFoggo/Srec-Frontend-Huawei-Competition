@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -11,16 +11,29 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { motion, AnimatePresence } from "framer-motion";
-import UserMenu from "../UserMenu/UserMenu";
+import UserMenu from "../UserMenu";
 import navbarBackground from "@/assets/images/NavBar/navbar_ background.png";
 
-const CandidateNavBar = () => {
+const RecruiterNavBar = () => {
   const location = useLocation();
+  const [jobId, setJobId] = useState<Number | null>();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
+
+  useEffect(() => {
+    const job = localStorage.getItem("job");
+    if (job) {
+      const parsedJob = JSON.parse(job);
+      setJobId(parsedJob.id);
+    }
+
+    return () => {
+      setJobId(null)
+    }
+  }, []);
 
   const linkClass = (path: string) =>
     `group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 font-clash font-medium transition-colors duration-300 ${
@@ -78,43 +91,33 @@ const CandidateNavBar = () => {
         <div className="hidden md:flex items-center space-x-4">
           <NavigationMenu>
             <NavigationMenuList>
-            <NavigationMenuItem>
+              <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    to="/candidate/introduction"
-                    className={linkClass("/candidate/introduction")}
+                    to="/recruiter/job-descriptions"
+                    className={linkClass("/recruiter/job-descriptions")}
                   >
-                    Introduction
+                    Job descriptions
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    to="/candidate/code-assessment"
-                    className={linkClass("/candidate/code-assessment")}
+                    to={`/recruiter/candidate-ranking/${jobId}`}
+                    className={linkClass(`/recruiter/candidate-ranking/${jobId}`)}
                   >
-                    Code assessment
+                    Candidate Ranking
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    to="/candidate/personality-test"
-                    className={linkClass("/candidate/personality-test")}
+                    to="/recruiter/dashboard"
+                    className={linkClass("/recruiter/dashboard")}
                   >
-                    Personality Test
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    to="/candidate/virtual-interview"
-                    className={linkClass("/candidate/virtual-interview")}
-                  >
-                    Virtual Interview
+                    Dashboard
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -176,4 +179,4 @@ const CandidateNavBar = () => {
   );
 };
 
-export default CandidateNavBar;
+export default RecruiterNavBar;

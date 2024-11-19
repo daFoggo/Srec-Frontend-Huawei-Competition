@@ -13,7 +13,7 @@ import {
   Settings,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { InterviewWebcamProps } from "@/models/VirtualInterview/VirtualInterview";
+import { InterviewWebcamProps } from "@/models/VirtualInterview/type";
 
 const InterviewWebcam = ({
   isRecording,

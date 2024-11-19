@@ -1,4 +1,4 @@
-import { UserSession } from "@/models/CodeAssessment/CodeAssessment";
+import { UserSession } from "@/models/CodeAssessment/type";
 
 export const codingProblems = [
   {

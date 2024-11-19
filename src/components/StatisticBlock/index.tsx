@@ -1,5 +1,5 @@
 "use client";
-import { StatisticBlockProps } from "@/models/Dashboard/Dashboard";
+import { StatisticBlockProps } from "@/models/Dashboard/type";
 
 const StatisticBlock = ({ icon, title, value }: StatisticBlockProps) => {
   return (

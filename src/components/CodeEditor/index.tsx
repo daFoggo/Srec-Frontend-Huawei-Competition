@@ -10,9 +10,9 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { CodeEditorProps } from "@/models/CodeAssessment/CodeAssessment";
+import { CodeEditorProps } from "@/models/CodeAssessment/type";
 import { Play, SendHorizontal } from "lucide-react";
-import ConfirmDialog from "../ConfirmDialog/ConfirmDialog";
+import ConfirmDialog from "../ConfirmDialog";
 import { convertDifficulty, convertMemory } from "@/utils/helper";
 
 export const CodeEditor = ({

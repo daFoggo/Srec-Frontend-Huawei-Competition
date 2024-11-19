@@ -15,7 +15,7 @@ import {
   Users,
   Eye,
 } from "lucide-react";
-import { IJobDescription } from "@/models/JobDescriptions/JobDescriptions";
+import { IJobDescription } from "@/models/JobDescriptions/type";
 
 const JobDescriptionsDialog = ({
   job,
@@ -26,7 +26,7 @@ const JobDescriptionsDialog = ({
 }) => {
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         {isColumnItem ? (
           <Button
             variant="outline"

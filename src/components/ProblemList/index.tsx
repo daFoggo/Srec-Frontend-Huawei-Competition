@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ProblemListProps } from "@/models/CodeAssessment/CodeAssessment";
+import { ProblemListProps } from "@/models/CodeAssessment/type";
 import {
   CheckCheck,
   ChevronsLeftRightEllipsis,
