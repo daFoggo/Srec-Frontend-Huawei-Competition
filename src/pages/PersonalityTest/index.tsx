@@ -59,10 +59,11 @@ const PersonalityTest = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  const progressVariants = {
-    initial: { width: 0 },
-    animate: { width: `${progress}%`, transition: { duration: 0.5 } },
-  };
+  // Unused variants - keeping for potential future use
+  // const progressVariants = {
+  //   initial: { width: 0 },
+  //   animate: { width: `${progress}%`, transition: { duration: 0.5 } },
+  // };
 
   return (
     <motion.div
@@ -72,7 +73,7 @@ const PersonalityTest = () => {
       transition={{ duration: 0.5 }}
     >
       <div
-        className="min-h-[40vh] w-full py-8 flex items-center justify-center"
+        className="flex justify-center items-center py-8 w-full min-h-[40vh]"
         style={{
           backgroundImage: `url(${personalityTestBackground})`,
           backgroundSize: "cover",
@@ -80,25 +81,25 @@ const PersonalityTest = () => {
         }}
       >
         <motion.div
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+          className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="text-center">
-            <h1 className="text-3xl sm:text-3xl font-semibold font-clash text-white">
+            <h1 className="font-clash font-semibold text-white text-3xl sm:text-3xl">
               Personality Test
             </h1>
-            <p className="text-base sm:text-xl font-medium font-clash text-white/80 mt-2">
+            <p className="mt-2 font-clash font-medium text-white/80 text-base sm:text-xl">
               Based on Big 5 Personality Traits
             </p>
           </div>
         </motion.div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16">
+      <div className="mx-auto -mt-16 px-4 sm:px-6 lg:px-8 max-w-6xl">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6"
+          className="gap-4 sm:gap-6 grid grid-cols-1 md:grid-cols-3"
           variants={{
             hidden: { opacity: 0 },
             visible: {
@@ -129,14 +130,14 @@ const PersonalityTest = () => {
             <motion.div key={index} variants={cardVariants}>
               <Card className="bg-white shadow-sm h-full">
                 <CardContent className="p-4 sm:p-6 text-center">
-                  <div className="mb-4 flex justify-center">
+                  <div className="flex justify-center mb-4">
                     <div
                       className={`w-10 h-10 sm:w-12 sm:h-12 ${item.color} rounded-lg flex items-center justify-center`}
                     >
-                      <item.icon className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+                      <item.icon className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
                     </div>
                   </div>
-                  <p className="text-sm sm:text-base font-semibold text-rocken-subtle">
+                  <p className="font-semibold text-rocken-subtle text-sm sm:text-base">
                     {item.text}
                   </p>
                 </CardContent>
@@ -152,16 +153,16 @@ const PersonalityTest = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <div className="flex justify-between mb-2">
-            <span className="text-lg sm:text-xl font-semibold text-rocken-blue-500">
+            <span className="font-semibold text-rocken-blue-500 text-lg sm:text-xl">
               Progress
             </span>
-            <span className="text-lg sm:text-xl font-semibold text-rocken-blue-500">
+            <span className="font-semibold text-rocken-blue-500 text-lg sm:text-xl">
               {Math.round(progress)}%
             </span>
           </div>
           <Progress
             value={progress}
-            className="h-4 sm:h-3 mb-2 [&>*]:bg-gradient-to-r from-rocken-blue-100 via-rocken-blue-300 to-rocken-blue-500"
+            className="[&>*]:bg-gradient-to-r from-rocken-blue-100 via-rocken-blue-300 to-rocken-blue-500 mb-2 h-4 sm:h-3"
           ></Progress>
         </motion.div>
 
@@ -198,7 +199,7 @@ const PersonalityTest = () => {
                     setCurrentQuestionIndex((prev) => Math.max(0, prev - 5))
                   }
                   disabled={currentQuestionIndex === 0}
-                  className="bg-violet-500 hover:bg-violet-500/90 hover:text-white/90 transition-colors text-sm sm:text-base px-3 sm:px-4"
+                  className="bg-violet-500 hover:bg-violet-500/90 px-3 sm:px-4 hover:text-white/90 text-sm sm:text-base transition-colors"
                 >
                   Previous
                 </Button>
@@ -208,7 +209,7 @@ const PersonalityTest = () => {
                   <Button
                     onClick={() => setShowConfirm(true)}
                     disabled={!isAllQuestionsAnswered || isSubmitting}
-                    className="bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90 transition-colors text-sm sm:text-base px-3 sm:px-4"
+                    className="bg-rocken-blue-500 hover:bg-rocken-blue-500/90 px-3 sm:px-4 hover:text-white/90 text-sm sm:text-base transition-colors"
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </Button>
@@ -220,7 +221,7 @@ const PersonalityTest = () => {
                       )
                     }
                     disabled={currentQuestionIndex >= questions.length - 5}
-                    className="bg-rocken-blue-500 hover:bg-rocken-blue-500/90 hover:text-white/90 transition-colors text-sm sm:text-base px-3 sm:px-4"
+                    className="bg-rocken-blue-500 hover:bg-rocken-blue-500/90 px-3 sm:px-4 hover:text-white/90 text-sm sm:text-base transition-colors"
                   >
                     Next
                   </Button>

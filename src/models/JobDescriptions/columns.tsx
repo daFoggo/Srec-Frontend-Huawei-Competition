@@ -1,23 +1,14 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { IJobDescription } from "./type";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { ExternalLink, Eye } from "lucide-react";
-import { shouldUseTextarea, truncateText } from "@/utils/helper";
+import { ExternalLink } from "lucide-react";
+import { truncateText } from "@/utils/helper";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ConfirmDialog from "@/components/ConfirmDialog";
 import JobDescriptionsDialog from "@/components/JobDescriptionsDialog";
 
+/* Unused component - keeping for potential future use
 const DynamicField = ({
   id,
   label,
@@ -43,7 +34,7 @@ const DynamicField = ({
           value={stringValue}
           readOnly
           autoFocus={false}
-          className="bg-gray-50 min-h-[120px] resize-none w-full"
+          className="bg-gray-50 w-full min-h-[120px] resize-none"
         />
       ) : (
         <Input
@@ -57,6 +48,7 @@ const DynamicField = ({
     </div>
   );
 };
+*/
 
 export const JobDescriptionsColumn: ColumnDef<IJobDescription>[] = [
   {
@@ -92,14 +84,14 @@ export const JobDescriptionsColumn: ColumnDef<IJobDescription>[] = [
       };
 
       return (
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-2">
           <JobDescriptionsDialog job={job} isColumnItem={true} />
           <Button
             variant="outline"
             size="sm"
-            className="border-rocken-sand-500 bg-rocken-sand-100 text-rocken-sand-500 hover:bg-rocken-sand-100/90 hover:text-rocken-sand-500/90 transition-colors"
+            className="bg-rocken-sand-100 hover:bg-rocken-sand-100/90 border-rocken-sand-500 text-rocken-sand-500 hover:text-rocken-sand-500/90 transition-colors"
             onClick={() => setShowConfirmDialog(true)}
-            icon={<ExternalLink className="h-4 w-4" />}
+            icon={<ExternalLink className="w-4 h-4" />}
             iconPosition="left"
           >
             Start matching

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Dialog,
   DialogContent,
@@ -31,14 +30,14 @@ const JobDescriptionsDialog = ({
           <Button
             variant="outline"
             size="sm"
-            className="border-rocken-blue-500 bg-rocken-blue-200 text-rocken-blue-500 hover:bg-rocken-blue-200/90 hover:text-rocken-blue-500/90 transition-colors"
+            className="bg-rocken-blue-200 hover:bg-rocken-blue-200/90 border-rocken-blue-500 text-rocken-blue-500 hover:text-rocken-blue-500/90 transition-colors"
           >
-            <Eye className="h-4 w-4 mr-2" />
+            <Eye className="mr-2 w-4 h-4" />
             View
           </Button>
         ) : (
           <Button
-            className="text-sm border-transparent focus:border-transparent"
+            className="border-transparent focus:border-transparent text-sm"
             variant="outline"
           >
             <ExternalLink className="w-4 h-4" />
@@ -50,7 +49,7 @@ const JobDescriptionsDialog = ({
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <DialogHeader>
-          <DialogTitle className="text-2xl text-rocken-blue-500 pb-2 border-b mb-4">
+          <DialogTitle className="mb-4 pb-2 border-b text-rocken-blue-500 text-2xl">
             {job.name}
           </DialogTitle>
         </DialogHeader>
@@ -81,11 +80,11 @@ const JobDescriptionsDialog = ({
 
 const ProfileItem = ({ icon, label, value, isLongText = false }: any) => (
   <div className="flex items-start">
-    <div className="text-rocken-blue-500 mr-3 bg-rocken-ground p-2 rounded-full flex-shrink-0">
+    <div className="flex-shrink-0 bg-rocken-ground mr-3 p-2 rounded-full text-rocken-blue-500">
       {icon}
     </div>
     <div className="flex-grow">
-      <p className="text-sm text-gray-500 font-semibold mb-1">{label}</p>
+      <p className="mb-1 font-semibold text-gray-500 text-sm">{label}</p>
       <p
         className={`font-medium ${isLongText ? "text-sm leading-relaxed" : ""}`}
       >

@@ -9,7 +9,7 @@ const emotion_overview = (() => {
     neutral: Math.random(),
   };
   const total = Object.values(emotions).reduce((sum, value) => sum + value, 0);
-  Object.keys(emotions).forEach(
+  (Object.keys(emotions) as Array<keyof typeof emotions>).forEach(
     (key) => (emotions[key] = (emotions[key] / total) * 100)
   );
   return emotions;

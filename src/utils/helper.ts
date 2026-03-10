@@ -1,6 +1,7 @@
-const SECOND = 1;
-const NANO = 1000000;
-const MEMORY_LIMIT_BYTES = 65536;
+// Unused constants - keeping for potential future use
+// const SECOND = 1;
+// const NANO = 1000000;
+// const MEMORY_LIMIT_BYTES = 65536;
 
 export const shouldUseTextarea = (text: String) => {
   return text.length > 100 || text.includes("\n");

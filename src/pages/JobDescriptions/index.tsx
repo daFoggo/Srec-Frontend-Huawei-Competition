@@ -2,16 +2,14 @@ import { jobDescriptions } from "./constant";
 import { useEffect, useState } from "react";
 import { IJobDescription } from "@/models/JobDescriptions/type";
 import { JobDescriptionsColumn } from "@/models/JobDescriptions/columns";
-import axios from "axios";
 import { toast } from "sonner";
-import LoadingOverlay from "@/components/LoadingOverlay";
 import { DataTable } from "@/components/ui/data-table";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const JobDescriptions = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [jobDescriptionData, setJobDescriptionData] =
+  const [jobDescriptionData] =
     useState<IJobDescription[]>(jobDescriptions);
+  const [, setIsLoading] = useState(false);
 
   const getJobDescriptions = async () => {
     setIsLoading(true);
@@ -58,7 +56,7 @@ const JobDescriptions = () => {
       </AnimatePresence> */}
       
       <motion.h1
-        className="font-clash font-semibold text-3xl text-rocken-blue-500 mb-6"
+        className="mb-6 font-clash font-semibold text-rocken-blue-500 text-3xl"
         variants={itemVariants}
       >
         Job Descriptions

@@ -27,11 +27,12 @@ const VirtualInterview = () => {
   const interviewVideoRef = useRef<HTMLVideoElement>(null);
   const navigate = useNavigate();
 
-  const videoConstraints = {
-    width: 1920,
-    height: 1080,
-    facingMode: "user",
-  };
+  // Unused constraints - keeping for potential future use
+  // const videoConstraints = {
+  //   width: 1920,
+  //   height: 1080,
+  //   facingMode: "user",
+  // };
 
   useEffect(() => {
     if (interviewVideoRef.current) {
@@ -165,7 +166,7 @@ const VirtualInterview = () => {
       exit={{ opacity: 0 }}
       className="mx-auto p-4 md:p-6 min-h-screen font-inter"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="gap-6 grid grid-cols-1 lg:grid-cols-3">
         {/* Left side */}
         <InterviewWebcam
           isRecording={isRecording}
@@ -181,19 +182,19 @@ const VirtualInterview = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <Card className="bg-white border rounded-xl shadow-sm h-full">
-            <CardContent className="h-full p-4 flex flex-col justify-between gap-6">
+          <Card className="bg-white shadow-sm border rounded-xl h-full">
+            <CardContent className="flex flex-col justify-between gap-6 p-4 h-full">
               {/* Progress */}
               <div>
-                <h3 className="font-semibold font-clash text-2xl mb-4 text-rocken-blue-500">
+                <h3 className="mb-4 font-clash font-semibold text-rocken-blue-500 text-2xl">
                   Virtual Interview
                 </h3>
                 <div className="relative pt-1">
                   <Progress
                     value={progress}
-                    className="h-2 sm:h-3 mb-2 [&>*]:bg-gradient-to-r from-rocken-blue-300 to-rocken-blue-500"
+                    className="[&>*]:bg-gradient-to-r from-rocken-blue-300 to-rocken-blue-500 mb-2 h-2 sm:h-3"
                   ></Progress>
-                  <p className="text-xs font-semibold text-rocken-subtle">
+                  <p className="font-semibold text-rocken-subtle text-xs">
                     Question {currentQuestionIndex + 1} of{" "}
                     {interviewQuestions.length}
                   </p>
@@ -204,7 +205,7 @@ const VirtualInterview = () => {
               <div>
                 <video
                   ref={interviewVideoRef}
-                  className="w-full aspect-video bg-rocken-blue-100 rounded-xl shadow-sm"
+                  className="bg-rocken-blue-100 shadow-sm rounded-xl w-full aspect-video"
                 ></video>
               </div>
 
@@ -213,9 +214,9 @@ const VirtualInterview = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="bg-rocken-blue-500 rounded-xl p-4 shadow-sm"
+                className="bg-rocken-blue-500 shadow-sm p-4 rounded-xl"
               >
-                <p className="font-semibold text-lg text-white mb-6 text-center">
+                <p className="mb-6 font-semibold text-white text-lg text-center">
                   {interviewQuestions[currentQuestionIndex].question}
                 </p>
                 {!isInterviewComplete ? (
@@ -228,19 +229,19 @@ const VirtualInterview = () => {
                     } text-white font-semibold transition-colors`}
                   >
                     {isRecording ? (
-                      <CirclePause className="h-5 w-5 mr-2" />
+                      <CirclePause className="mr-2 w-5 h-5" />
                     ) : (
-                      <CirclePlay className="h-5 w-5 mr-2" />
+                      <CirclePlay className="mr-2 w-5 h-5" />
                     )}
                     {isRecording ? "End Question" : "Start Question"}
                   </Button>
                 ) : (
                   <Button
-                    className="w-full bg-rocken-blue-200 text-rocken-blue-500 hover:bg-rocken-blue-200/90 hover:text-rocken-blue-500/90 transition-colors font-semibold"
+                    className="bg-rocken-blue-200 hover:bg-rocken-blue-200/90 w-full font-semibold text-rocken-blue-500 hover:text-rocken-blue-500/90 transition-colors"
                     onClick={() => navigate("/candidate/thank-you")}
                   >
                     Finish Interview
-                    <ArrowRight className="h-5 w-5 ml-2" />
+                    <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 )}
               </motion.div>

@@ -1,11 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { ICandidateRanking } from "./type";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { ThumbsUp } from "lucide-react";
-import { shouldUseTextarea, truncateText } from "@/utils/helper";
+import { truncateText } from "@/utils/helper";
 import { useState } from "react";
 import ConfirmDialog from "@/components/ConfirmDialog";
 import { toast } from "sonner";
@@ -44,7 +41,7 @@ export const CandidateRankingColumns: ColumnDef<ICandidateRanking>[] = [
     header: "Score",
     cell: ({ row }) => {
       return (
-        <span className="text-sm font-semibold text-rocken-blue-500">
+        <span className="font-semibold text-rocken-blue-500 text-sm">
           {row.getValue("matching_score")}
         </span>
       );
@@ -73,15 +70,15 @@ export const CandidateRankingColumns: ColumnDef<ICandidateRanking>[] = [
       };
 
       return (
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-2">
           <CandidateProfileDialog candidate={candidate} isColumnItem={true} />
 
           <Button
             variant="outline"
             size="sm"
-            className="border-violet-500 bg-violet-200 text-violet-500 hover:bg-violet-200/90 hover:text-violet-500/90 transition-colors"
+            className="bg-violet-200 hover:bg-violet-200/90 border-violet-500 text-violet-500 hover:text-violet-500/90 transition-colors"
             onClick={() => setShowConfirmDialog(true)}
-            icon={<ThumbsUp className="h-4 w-4" />}
+            icon={<ThumbsUp className="w-4 h-4" />}
             iconPosition="left"
           >
             Pass

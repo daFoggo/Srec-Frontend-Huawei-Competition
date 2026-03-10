@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   ColumnDef,
   flexRender,
@@ -91,7 +91,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="font-inter">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between py-4 space-y-4 md:space-y-0">
+      <div className="flex md:flex-row flex-col md:justify-between md:items-center space-y-4 md:space-y-0 py-4">
         <Input
           placeholder={filterPlaceholder}
           value={
@@ -116,7 +116,7 @@ export function DataTable<TData, TValue>({
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
-                Columns <ChevronDown className="ml-2 h-4 w-4" />
+                Columns <ChevronDown className="ml-2 w-4 h-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -141,7 +141,7 @@ export function DataTable<TData, TValue>({
           </DropdownMenu>
         </div>
       </div>
-      <div className="rounded-md border overflow-x-auto">
+      <div className="border rounded-md overflow-x-auto">
         <Table>
           <TableHeader className="bg-rocken-blue-100 hover:bg-rocken-blue-100/90">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -193,7 +193,7 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className="flex justify-end items-center space-x-2 py-4">
         <Button
           variant="outline"
           size="sm"

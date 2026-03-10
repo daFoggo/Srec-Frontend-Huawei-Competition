@@ -81,7 +81,7 @@ const ReuseDonutChart = ({
   ) as ChartConfig;
 
   return (
-    <Card className="flex flex-col h-full shadow-sm">
+    <Card className="flex flex-col shadow-sm h-full">
       <CardHeader className="items-center pb-0">
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
@@ -89,7 +89,7 @@ const ReuseDonutChart = ({
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="mx-auto max-h-[250px] aspect-square"
         >
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
@@ -105,7 +105,7 @@ const ReuseDonutChart = ({
                 outerRadius={80}
                 strokeWidth={5}
               >
-                {chartData.map((entry, index) => (
+                {chartData.map((_, index) => (
                   <Cell
                     key={`cell-${index}`}
                     fill={chartColors[index % chartColors.length]}
@@ -124,7 +124,7 @@ const ReuseDonutChart = ({
                           <tspan
                             x={viewBox.cx}
                             y={viewBox.cy}
-                            className="fill-foreground text-3xl font-bold"
+                            className="fill-foreground font-bold text-3xl"
                           >
                             {largestValue.value.toFixed(1)}%
                           </tspan>
@@ -152,14 +152,14 @@ const ReuseDonutChart = ({
               Trending {trendPercentage > 0 ? "up" : "down"} by{" "}
               {Math.abs(trendPercentage)}% this month
               {trendPercentage > 0 ? (
-                <TrendingUp className="h-4 w-4" />
+                <TrendingUp className="w-4 h-4" />
               ) : (
-                <TrendingDown className="h-4 w-4" />
+                <TrendingDown className="w-4 h-4" />
               )}
             </div>
           )}
           {footerText && (
-            <div className="leading-none text-muted-foreground">
+            <div className="text-muted-foreground leading-none">
               {footerText}
             </div>
           )}

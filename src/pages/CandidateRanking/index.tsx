@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import LoadingOverlay from "@/components/LoadingOverlay";
 import { DataTable } from "@/components/ui/data-table";
 import { useState, useEffect } from "react";
 import { candidates } from "./constant";
@@ -18,7 +17,7 @@ import { Users } from "lucide-react";
 import axios from "axios";
 import { PERCENTAGE_OPTIONS } from "@/utils/constant";
 import ConfirmDialog from "@/components/ConfirmDialog";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const CandidateRanking = () => {
   const location = useLocation();
@@ -28,11 +27,11 @@ const CandidateRanking = () => {
       ? JSON.parse(localStorage.getItem("job") as string)
       : null);
 
-  const [isLoading, setIsLoading] = useState(false);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [selectedPercentage, setSelectedPercentage] = useState<string>();
-  const [candidateRankingData, setCandidateRankingData] =
+  const [candidateRankingData] =
     useState<ICandidateRanking[]>(candidates);
+  const [, setIsLoading] = useState(false);
 
   const getJobDescriptions = async () => {
     setIsLoading(true);
@@ -120,13 +119,13 @@ const CandidateRanking = () => {
       <motion.div className="flex flex-col gap-6" variants={itemVariants}>
         <motion.div variants={itemVariants}>
           <motion.h1
-            className="font-clash font-semibold text-3xl text-rocken-blue-500"
+            className="font-clash font-semibold text-rocken-blue-500 text-3xl"
             variants={itemVariants}
           >
             CV ranking for
           </motion.h1>
           <motion.p
-            className="text-lg font-medium font-clash text-rocken-subtle"
+            className="font-clash font-medium text-rocken-subtle text-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -135,7 +134,7 @@ const CandidateRanking = () => {
           </motion.p>
         </motion.div>
 
-        <motion.div className="flex gap-4 items-center" variants={itemVariants}>
+        <motion.div className="flex items-center gap-4" variants={itemVariants}>
           <Select onValueChange={setSelectedPercentage}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select percentage of candidates" />
@@ -153,7 +152,7 @@ const CandidateRanking = () => {
             onClick={() => setShowConfirmDialog(true)}
             disabled={!selectedPercentage}
             className="bg-violet-500 hover:bg-violet-600 text-white"
-            icon={<Users className="h-4 w-4" />}
+            icon={<Users className="w-4 h-4" />}
           >
             Bulk Pass
           </Button>
